@@ -10,7 +10,9 @@ public class Puzzle1 : MonoBehaviour
     [SerializeField] private GameObject emptySpaceObj;
     [SerializeField] private Transform emptySpace;
     [SerializeField] private List<Vector3> solvedBoard;
-    [SerializeField] private List<GameObject> Tiles; 
+    [SerializeField] private List<GameObject> Tiles;
+
+    public GameManager GameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,8 @@ public class Puzzle1 : MonoBehaviour
                     //check if the board is now solved
                     if (checkSolved())
                     {
+                        GameManager.Instance.UpdateGameState(GameState.FirstPuzzleComplete);
+                        MASTERSCRIPT.Instance.postPuzzleDialogue_1();
                         Debug.Log("ALL SOLVED");
                     }
 
@@ -65,8 +69,6 @@ public class Puzzle1 : MonoBehaviour
     {
         for (int i = 0; i < Tiles.Count-1; i++)
         {
-
-            Debug.Log(Tiles[i].transform.position) ;
            if(Tiles[i].transform.position != solvedBoard[i])
             
             {

@@ -8,17 +8,16 @@ using UnityEngine.EventSystems;
 public class Ghost_Dialog_State : MonoBehaviour, IPointerClickHandler
 {
     public inGameDialogManager IG_DialogManager;
-    public string GhostState;
+
 
     private void Start()
     {
-        GhostState = "inital";
     }
     // Start is called before the first frame update
 
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("IM BEING CLICKED");
-        IG_DialogManager.IdaInteraction(GhostState);
+        IG_DialogManager.IdaInteraction(IG_DialogManager.GhostState);
     }
 }

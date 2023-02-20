@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameState State;
     public static event Action<GameState> OnGameStateChanged;
+    public inGameDialogManager inGameDialogManager;
 
     void Awake()
     {
@@ -28,12 +29,14 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameState.StartGame:
-                // honestly i don't think I need to run anything here?
+                inGameDialogManager.GhostState = "inital";
                 break;
 
             case GameState.FirstPuzzleComplete:
                 // reload some assets, make things avalible.
                 // init some dialogue?
+                Debug.Log("GAME STATE HAS BEEN CHANGED");
+                inGameDialogManager.GhostState = "postPuzzle1";
                 break;
 
             case GameState.SecondPuzzleComplete:
@@ -73,7 +76,5 @@ public enum GameState
     EndGameSeq,
     ShowEndScreen,
     RESET
-
-
 
 }

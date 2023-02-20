@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Doublsb.Dialog;
+using UnityEngine.EventSystems;
+
 
 public class inGameDialogManager : MonoBehaviour
 {
+    public string GhostState;
     public DialogManager dialogManager;
+    //public MASTERSCRIPT masterScript;
     //public GameObject[] textCalls;
     void Start()
     {
@@ -13,6 +17,7 @@ public class inGameDialogManager : MonoBehaviour
         DialogData dialogData = new DialogData("You are now in the house. This is the inital message.");
 
         dialogManager.Show(dialogData);
+            GhostState = "inital";
     }
 
     // Hoenstly, I don't understand enums very well. But if you click on the ghost, it brings up dialogue based on the "state" that is based through.
@@ -22,13 +27,26 @@ public class inGameDialogManager : MonoBehaviour
     {
         // when you click on Ida when player first walks in, after inital convo?
         if (State == "inital"){
-            var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("Who are you.","Ida"));
-            dialogTexts.Add(new DialogData("What do you want.", "Ida"));
-            dialogTexts.Add(new DialogData("/color:red/Get out of my house.", "Ida"));
 
-            dialogManager.Show(dialogTexts);
-            //dialogTexts.Clear();
+            MASTERSCRIPT.Instance.ida_interaction_1();
+        }
+        
+        if(State == "postPuzzle1")
+        {
+            MASTERSCRIPT.Instance.ida_interaction_2();
         }
     }
+
+
+
+
+    // Start is called before the first frame update
+
+ /*   public void OnPointerClick(PointerEventData eventData)
+    {
+
+        Debug.Log("IM BEING CLICKED");
+        IdaInteraction(GhostState);
+    }*/
+
 }
