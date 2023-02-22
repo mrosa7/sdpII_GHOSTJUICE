@@ -12,12 +12,14 @@ public class Puzzle1 : MonoBehaviour
     [SerializeField] private List<Vector3> solvedBoard;
     [SerializeField] private List<GameObject> Tiles;
     RaycastHit2D hit;
+    bool allowUserInput;
     public GameManager GameManager;
     // Start is called before the first frame update
     void Start()
     {
         _camera = Camera.main;
 
+        allowUserInput = true;
         // creates the solution before it shuffles. idk why i need to do it like this unity is killing me
         foreach( var x in Tiles)
         {
@@ -36,22 +38,26 @@ public class Puzzle1 : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //checks if the mouse click hit any of the tiles
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            hit = Physics2D.Raycast(ray.origin, ray.direction);
-            if (hit)
+            if (allowUserInput == true)
             {
-                if (Vector2.Distance(emptySpace.position, hit.transform.position) <=2.2)
+                //checks if the mouse click hit any of the tiles
+                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+                hit = Physics2D.Raycast(ray.origin, ray.direction);
+                if (hit)
+                {
+                    if (Vector2.Distance(emptySpace.position, hit.transform.position) <= 2.2)
                     {
-                    // saves empty space position before changing it.
-                    StopAllCoroutines();
-                    Vector2 lastEmptySpacePosition = emptySpace.position;
-                    StartCoroutine(movePiece(hit, lastEmptySpacePosition));
-                    emptySpace.position = hit.transform.position;
-                    //hit.transform.position = lastEmptySpacePosition;
-                    //check if the board is now solved
-                    
+                        allowUserInput = false;
+                        // saves empty space position before changing it.
+                        StopAllCoroutines();
+                        Vector2 lastEmptySpacePosition = emptySpace.position;
+                        StartCoroutine(movePiece(hit, lastEmptySpacePosition));
+                        emptySpace.position = hit.transform.position;
+                        //hit.transform.position = lastEmptySpacePosition;
+                        //check if the board is now solved
 
+
+                    }
                 }
             }
         }
@@ -95,14 +101,16 @@ public class Puzzle1 : MonoBehaviour
     {
         float timeElapsed = 0;
         Vector3 startPosition = hitLocal.transform.position;
-        while (timeElapsed <= 0.1)
+        while (timeElapsed <= 0.2)
         {
-            hitLocal.transform.position = Vector3.Lerp(startPosition, lastEmptySpacePosition, timeElapsed / 0.1f);
+            hitLocal.transform.position = Vector3.Lerp(startPosition, lastEmptySpacePosition, timeElapsed / 0.2f);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
+        //hit.transform.position = hitLocal.transform.position;
         //emptySpace.position = hit.transform.position;
         hit.transform.position = lastEmptySpacePosition;
+        allowUserInput = true;
         if (checkSolved())
         {
             GameManager.Instance.UpdateGameState(GameState.FirstPuzzleComplete);
