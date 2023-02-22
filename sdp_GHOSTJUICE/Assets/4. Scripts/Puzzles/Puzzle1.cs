@@ -41,7 +41,7 @@ public class Puzzle1 : MonoBehaviour
             hit = Physics2D.Raycast(ray.origin, ray.direction);
             if (hit)
             {
-                if (Vector2.Distance(emptySpace.position, hit.transform.position) <=2.5)
+                if (Vector2.Distance(emptySpace.position, hit.transform.position) <=2.2)
                     {
                     // saves empty space position before changing it.
                     StopAllCoroutines();
@@ -95,9 +95,9 @@ public class Puzzle1 : MonoBehaviour
     {
         float timeElapsed = 0;
         Vector3 startPosition = hitLocal.transform.position;
-        while (timeElapsed < 0.3)
+        while (timeElapsed <= 0.1)
         {
-            hitLocal.transform.position = Vector3.Lerp(startPosition, lastEmptySpacePosition, timeElapsed / 0.3f);
+            hitLocal.transform.position = Vector3.Lerp(startPosition, lastEmptySpacePosition, timeElapsed / 0.1f);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
