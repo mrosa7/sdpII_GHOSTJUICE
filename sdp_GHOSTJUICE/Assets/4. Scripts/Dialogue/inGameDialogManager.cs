@@ -10,7 +10,7 @@ public class inGameDialogManager : MonoBehaviour
     public string GhostState;
     public DialogManager dialogManager;
 
-    bool puzzle1_tutorial = false;
+    bool puzzle1_tutorial = true;
 
     void Start()
     {
