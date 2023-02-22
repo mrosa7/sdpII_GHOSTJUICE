@@ -41,7 +41,7 @@ public class Puzzle1 : MonoBehaviour
             hit = Physics2D.Raycast(ray.origin, ray.direction);
             if (hit)
             {
-                if (Vector2.Distance(emptySpace.position, hit.transform.position) <=2)
+                if (Vector2.Distance(emptySpace.position, hit.transform.position) <=2.5)
                     {
                     // saves empty space position before changing it.
                     StopAllCoroutines();
