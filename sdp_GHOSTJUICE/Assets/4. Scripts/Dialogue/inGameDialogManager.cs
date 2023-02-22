@@ -9,8 +9,9 @@ public class inGameDialogManager : MonoBehaviour
 {
     public string GhostState;
     public DialogManager dialogManager;
-    //public MASTERSCRIPT masterScript;
-    //public GameObject[] textCalls;
+
+    bool puzzle1_tutorial = false;
+
     void Start()
     {
         //Plays this dialogue when the Player first enters the house.
@@ -37,6 +38,14 @@ public class inGameDialogManager : MonoBehaviour
         }
     }
 
+    public void puzzle1_intro()
+    {
+        if (puzzle1_tutorial)
+        {
+            MASTERSCRIPT.Instance.puzzle1_introduction();
+            puzzle1_tutorial = false;
+        }
+    }
 
 
 

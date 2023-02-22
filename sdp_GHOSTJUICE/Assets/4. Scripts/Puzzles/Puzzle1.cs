@@ -11,7 +11,7 @@ public class Puzzle1 : MonoBehaviour
     [SerializeField] private Transform emptySpace;
     [SerializeField] private List<Vector3> solvedBoard;
     [SerializeField] private List<GameObject> Tiles;
-
+    RaycastHit2D hit;
     public GameManager GameManager;
     // Start is called before the first frame update
     void Start()
@@ -38,23 +38,19 @@ public class Puzzle1 : MonoBehaviour
         {
             //checks if the mouse click hit any of the tiles
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+            hit = Physics2D.Raycast(ray.origin, ray.direction);
             if (hit)
             {
                 if (Vector2.Distance(emptySpace.position, hit.transform.position) <=2)
                     {
                     // saves empty space position before changing it.
+                    StopAllCoroutines();
                     Vector2 lastEmptySpacePosition = emptySpace.position;
+                    StartCoroutine(movePiece(hit, lastEmptySpacePosition));
                     emptySpace.position = hit.transform.position;
-                    //hit.transform.position = Vector3.Lerp(hit.transform.position, lastEmptySpacePosition, 1f); // would need to add stuff to make it smoother, rework logic 
-                    hit.transform.position = lastEmptySpacePosition;
+                    //hit.transform.position = lastEmptySpacePosition;
                     //check if the board is now solved
-                    if (checkSolved())
-                    {
-                        GameManager.Instance.UpdateGameState(GameState.FirstPuzzleComplete);
-                        MASTERSCRIPT.Instance.postPuzzleDialogue_1();
-                        Debug.Log("ALL SOLVED");
-                    }
+                    
 
                 }
             }
@@ -69,11 +65,15 @@ public class Puzzle1 : MonoBehaviour
     {
         for (int i = 0; i < Tiles.Count-1; i++)
         {
-           if(Tiles[i].transform.position != solvedBoard[i])
-            
+            if (Vector3.Distance(Tiles[i].transform.position, solvedBoard[i]) > 1.0f)
             {
                 return false;
             }
+           /* if (Tiles[i].transform.position != solvedBoard[i])
+            
+            {
+                return false;
+            }*/
         }
         return true;
     }
@@ -90,4 +90,27 @@ public class Puzzle1 : MonoBehaviour
             }
         }
     }
+
+    IEnumerator movePiece(RaycastHit2D hitLocal, Vector2 lastEmptySpacePosition)
+    {
+        float timeElapsed = 0;
+        Vector3 startPosition = hitLocal.transform.position;
+        while (timeElapsed < 0.3)
+        {
+            hitLocal.transform.position = Vector3.Lerp(startPosition, lastEmptySpacePosition, timeElapsed / 0.3f);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        //emptySpace.position = hit.transform.position;
+        hit.transform.position = lastEmptySpacePosition;
+        if (checkSolved())
+        {
+            GameManager.Instance.UpdateGameState(GameState.FirstPuzzleComplete);
+            MASTERSCRIPT.Instance.postPuzzleDialogue_1();
+            Debug.Log("ALL SOLVED");
+        }
+
+        //hit.transform.position = lastEmptySpacePosition;
+    }
+
 }
