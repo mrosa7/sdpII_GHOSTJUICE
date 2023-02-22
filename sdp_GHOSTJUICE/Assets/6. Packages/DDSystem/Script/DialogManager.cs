@@ -43,6 +43,7 @@ namespace Doublsb.Dialog
         public GameObject Characters;
         public GameObject Overlay;
         public GameObject NameLabel;
+        public GameObject clickOverlay;
 
         [Header("UI Objects")]
         public Text Printer_Text;
@@ -60,6 +61,7 @@ namespace Doublsb.Dialog
         public GameObject SelectorItem;
         public Text SelectorItemText;
 
+        
         [HideInInspector]
         public State state;
 
@@ -124,6 +126,7 @@ namespace Doublsb.Dialog
 
             Printer.SetActive(false);
             Overlay.SetActive(false);
+            clickOverlay.SetActive(false);
             Characters.SetActive(false);
             Selector.SetActive(false);
             NameLabel.SetActive(false);
@@ -228,7 +231,7 @@ namespace Doublsb.Dialog
 
             Printer.SetActive(true);
             Overlay.SetActive(true);
-            
+            clickOverlay.SetActive(true);
             // only shows up if there is a character
             Characters.SetActive(_current_Character != null);
             NameLabel.SetActive(_current_Character != null);
