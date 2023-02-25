@@ -123,13 +123,14 @@ namespace Doublsb.Dialog
 
             if(_printingRoutine != null)
                 StopCoroutine(_printingRoutine);
-
+            _initialize();
             Printer.SetActive(false);
             Overlay.SetActive(false);
             clickOverlay.SetActive(false);
             Characters.SetActive(false);
             Selector.SetActive(false);
             NameLabel.SetActive(false);
+
 
             state = State.Deactivate;
 

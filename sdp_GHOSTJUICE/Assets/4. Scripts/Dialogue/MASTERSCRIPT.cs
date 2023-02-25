@@ -38,26 +38,38 @@ public class MASTERSCRIPT : MonoBehaviour
     }
     #endregion
 
+    //Slide Puzzle Dialogue
+    #region
     public void puzzle1_introduction()
     {
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("...What is this?", "Medium"));
-        dialogTexts.Add(new DialogData("Ida: That's my mix tile paintings. I'd forgotten all about them. No use to me now..", "Ida"));
+        dialogTexts.Add(new DialogData("That's my mix tile paintings. I'd forgotten all about them. No use to me now..", "Ida"));
         dialogTexts.Add(new DialogData("...", "Medium"));
+        DialogManager.Show(dialogTexts);
         dialogTexts.Add(new DialogData("/color:#B45ACF/Clicking on a tile that is adjacent to the empty space, will move the tile into the space.", "SYSTEM"));
 
-        DialogManager.Show(dialogTexts);
     }
 
     public void postPuzzleDialogue_1()
     {
         var dialogTexts = new List<DialogData>();
-        dialogTexts.Add(new DialogData("It's a picture of a ship", "null"));
+        dialogTexts.Add(new DialogData("It's a picture of a ship."));
         dialogTexts.Add(new DialogData("Stop touching my things.", "Ida"));
         
         DialogManager.Show(dialogTexts);
 
     }
+    #endregion
 
-
+    //Item Interactions (passes through key word. Yes this is messy but if I had done this with public strings it would have been a MESS
+    public void objInteraction(string keyWord)
+    {
+        if(keyWord == "ItemTest")
+        {
+            Debug.Log("UR SUPPOSE TO SAY SOMETHING DAMMNIT");
+            DialogData dialogData = new DialogData("I am an item. Edit my text in MasterScript.");
+            DialogManager.Show(dialogData);
+        }
+    }
 }

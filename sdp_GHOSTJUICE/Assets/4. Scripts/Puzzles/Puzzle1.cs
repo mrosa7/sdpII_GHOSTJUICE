@@ -116,6 +116,7 @@ public class Puzzle1 : MonoBehaviour
             GameManager.Instance.UpdateGameState(GameState.FirstPuzzleComplete);
             MASTERSCRIPT.Instance.postPuzzleDialogue_1();
             Debug.Log("ALL SOLVED");
+            this.enabled = false;
         }
 
         //hit.transform.position = lastEmptySpacePosition;
