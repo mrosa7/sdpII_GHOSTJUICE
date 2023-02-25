@@ -67,7 +67,7 @@ public class MASTERSCRIPT : MonoBehaviour
     {
         if(keyWord == "ItemTest")
         {
-            Debug.Log("UR SUPPOSE TO SAY SOMETHING DAMMNIT");
+
             DialogData dialogData = new DialogData("I am an item. Edit my text in MasterScript.");
             DialogManager.Show(dialogData);
         }
