@@ -11,10 +11,15 @@ public class ChangeScene : MonoBehaviour
     }
     public void LoadGame()
     {
-        GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
+       // GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
         SceneManager.LoadScene(1);
-        
+        //replace with intro sequence later
+    }
 
+    public void backToStart()
+    {
+        //GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
+        SceneManager.LoadScene(0);
         //replace with intro sequence later
     }
 
@@ -22,4 +27,10 @@ public class ChangeScene : MonoBehaviour
     {
         throw new System.NotImplementedException();
     }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+
 }
