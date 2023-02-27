@@ -48,6 +48,7 @@ namespace Doublsb.Dialog
         [Header("UI Objects")]
         public Text Printer_Text;
         public Text NameLabel_Text;
+        public GameObject itemDisplay;
 
         [Header("Audio Objects")]
         public AudioSource SEAudio;
@@ -124,6 +125,7 @@ namespace Doublsb.Dialog
             if(_printingRoutine != null)
                 StopCoroutine(_printingRoutine);
             _initialize();
+            itemDisplay.SetActive(false);
             Printer.SetActive(false);
             Overlay.SetActive(false);
             clickOverlay.SetActive(false);

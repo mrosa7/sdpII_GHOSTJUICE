@@ -46,9 +46,9 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("...What is this?", "Medium"));
         dialogTexts.Add(new DialogData("That's my mix tile paintings. I'd forgotten all about them. No use to me now..", "Ida"));
         dialogTexts.Add(new DialogData("...", "Medium"));
-        DialogManager.Show(dialogTexts);
-        dialogTexts.Add(new DialogData("/color:#B45ACF/Clicking on a tile that is adjacent to the empty space, will move the tile into the space.", "SYSTEM"));
 
+        dialogTexts.Add(new DialogData("/color:#B45ACF/Clicking on a tile that is adjacent to the empty space, will move the tile into the space.", "SYSTEM"));
+        DialogManager.Show(dialogTexts);
     }
 
     public void postPuzzleDialogue_1()
