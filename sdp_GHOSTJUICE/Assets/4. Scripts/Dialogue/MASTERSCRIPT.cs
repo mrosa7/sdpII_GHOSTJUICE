@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Doublsb.Dialog;
 
-
+// EXPAND REGION TO VIEW CODE
 public class MASTERSCRIPT : MonoBehaviour
 {
     public static MASTERSCRIPT Instance;
@@ -16,8 +16,48 @@ public class MASTERSCRIPT : MonoBehaviour
 
     //IDA INTERACTIONS (on click ghost sprite)
     #region  
-    // INITIAL
-    public void ida_interaction_1()
+    // bro i need to find a better way to store this. I could use another round of enums ;-;-; 
+
+    public void Ida_Interaction(GameState state, string room)
+    {
+        // interaction in living room, pre puzzle 1
+        if (GameState.StartGame == GameManager.Instance.State && room == "foyer"){
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("Who are you.", "Ida"));
+            dialogTexts.Add(new DialogData("What do you want.", "Ida"));
+            dialogTexts.Add(new DialogData("/color:red/Get out of my house.", "Ida"));
+
+            DialogManager.Show(dialogTexts);
+        }
+        else if (GameState.FirstPuzzleComplete == GameManager.Instance.State && room == "foyer")
+        {
+            var dialogTexts2 = new List<DialogData>();
+            dialogTexts2.Add(new DialogData("Stop messing around", "Ida"));
+            dialogTexts2.Add(new DialogData("But...", "Ida"));
+            dialogTexts2.Add(new DialogData("/size:down//size:down/Why was that picture ruined in the first place...", "Ida"));
+
+            DialogManager.Show(dialogTexts2);
+        }
+
+        else if (GameState.StartGame == GameManager.Instance.State && room == "livingRoom")
+        {
+            var dialogTexts2 = new List<DialogData>();
+            dialogTexts2.Add(new DialogData("Hello MTV and welcome to my crib.", "Ida"));
+            DialogManager.Show(dialogTexts2);
+        }
+
+        else if (GameState.FirstPuzzleComplete == GameManager.Instance.State && room == "livingRoom")
+        {
+            var dialogTexts2 = new List<DialogData>();
+            dialogTexts2.Add(new DialogData("....", "Ida"));
+            dialogTexts2.Add(new DialogData("Imagine if this puzzle was timed.", "Ida"));
+            dialogTexts2.Add(new DialogData("lololololol.", "Ida"));
+            DialogManager.Show(dialogTexts2);
+        }
+    }
+
+    //Scrap?
+    /*public void ida_interaction_1()
     {
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("Who are you.", "Ida"));
@@ -26,8 +66,8 @@ public class MASTERSCRIPT : MonoBehaviour
 
         DialogManager.Show(dialogTexts);
     }
-
-    public void ida_interaction_2() // post puzzle 1 click
+*/
+    /*public void ida_interaction_2() // post puzzle 1 click
     {
         var dialogTexts2 = new List<DialogData>();
         dialogTexts2.Add(new DialogData("Stop messing around", "Ida"));
@@ -35,7 +75,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts2.Add(new DialogData("/size:down//size:down/Why was that picture ruined in the first place...", "Ida"));
 
         DialogManager.Show(dialogTexts2);
-    }
+    }*/
     #endregion
 
     //Slide Puzzle Dialogue
@@ -62,6 +102,8 @@ public class MASTERSCRIPT : MonoBehaviour
     }
     #endregion
 
+    //OBJECT INTERACTION LINES
+    #region
     //Item Interactions (passes through key word. Yes this is messy but if I had done this with public strings it would have been a MESS
     public void objInteraction(string keyWord)
     {
@@ -72,4 +114,5 @@ public class MASTERSCRIPT : MonoBehaviour
             DialogManager.Show(dialogData);
         }
     }
+    #endregion
 }

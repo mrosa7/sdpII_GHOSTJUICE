@@ -7,8 +7,8 @@ using UnityEngine.EventSystems;
 // state can be updated publicly. Say, after a puzzle, the dialogue can change. Maybe depending on room? How would i handle that?
 public class Ghost_Dialog_State : MonoBehaviour, IPointerClickHandler
 {
-    public inGameDialogManager IG_DialogManager;
-
+    //public inGameDialogManager IG_DialogManager;
+    public string room;
 
     private void Start()
     {
@@ -18,6 +18,6 @@ public class Ghost_Dialog_State : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("IM BEING CLICKED");
-        IG_DialogManager.IdaInteraction(IG_DialogManager.GhostState);
+        MASTERSCRIPT.Instance.Ida_Interaction(GameManager.Instance.State, room);
     }
 }

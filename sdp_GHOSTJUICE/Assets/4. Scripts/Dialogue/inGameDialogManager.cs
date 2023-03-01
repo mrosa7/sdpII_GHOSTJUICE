@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class inGameDialogManager : MonoBehaviour
 {
-    public string GhostState;
+    //public string GhostState;
     public DialogManager dialogManager;
 
     bool puzzle1_tutorial = true;
@@ -18,10 +18,10 @@ public class inGameDialogManager : MonoBehaviour
         DialogData dialogData = new DialogData("You are now in the house. This is the inital message.");
 
         dialogManager.Show(dialogData);
-            GhostState = "inital";
+            //GhostState = "inital";
     }
 
-    // Hoenstly, I don't understand enums very well. But if you click on the ghost, it brings up dialogue based on the "state" that is based through.
+/*    // Hoenstly, I don't understand enums very well. But if you click on the ghost, it brings up dialogue based on the "state" that is based through.
     //State can be changed publicly. 
     //Change with Game Manager? 
     public void IdaInteraction(string State)
@@ -36,7 +36,7 @@ public class inGameDialogManager : MonoBehaviour
         {
             MASTERSCRIPT.Instance.ida_interaction_2();
         }
-    }
+    }*/
 
     public void puzzle1_intro()
     {
