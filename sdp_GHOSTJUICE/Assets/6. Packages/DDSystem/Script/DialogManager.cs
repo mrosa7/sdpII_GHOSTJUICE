@@ -220,7 +220,8 @@ namespace Doublsb.Dialog
             {
                 Transform Child = Characters.transform.Find(name);
                 if (Child != null) _current_Character = Child.GetComponent<Character>();
-                if (Child != null) NameLabel_Text.text = Child.gameObject.name;
+                Debug.Log(Child.gameObject.name);
+                if (Child != null) NameLabel_Text.text = Child.GetComponent<Character>().name;
             }
         }
 
@@ -235,6 +236,7 @@ namespace Doublsb.Dialog
             Printer.SetActive(true);
             Overlay.SetActive(true);
             clickOverlay.SetActive(true);
+            NameLabel.SetActive(true);
             // only shows up if there is a character
             Characters.SetActive(_current_Character != null);
             NameLabel.SetActive(_current_Character != null);

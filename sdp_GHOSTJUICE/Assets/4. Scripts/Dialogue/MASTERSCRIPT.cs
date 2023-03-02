@@ -8,10 +8,22 @@ public class MASTERSCRIPT : MonoBehaviour
 {
     public static MASTERSCRIPT Instance;
     public DialogManager DialogManager;
+
+
+    bool puzzle1_tutorial = true;
     // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+          //Plays this dialogue when the Player first enters the house.
+        DialogData dialogData = new DialogData("Let's have a look around.", "Medium");
+
+        DialogManager.Show(dialogData);
+        //GhostState = "inital";
     }
 
     //IDA INTERACTIONS (on click ghost sprite)
@@ -82,13 +94,17 @@ public class MASTERSCRIPT : MonoBehaviour
     #region
     public void puzzle1_introduction()
     {
-        var dialogTexts = new List<DialogData>();
-        dialogTexts.Add(new DialogData("...What is this?", "Medium"));
-        dialogTexts.Add(new DialogData("That's my mix tile paintings. I'd forgotten all about them. No use to me now..", "Ida"));
-        dialogTexts.Add(new DialogData("...", "Medium"));
+        if (puzzle1_tutorial)
+        {
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("...What is this?", "Medium"));
+            dialogTexts.Add(new DialogData("That's my mix tile paintings. I'd forgotten all about them. No use to me now..", "Ida"));
+            dialogTexts.Add(new DialogData("...", "Medium"));
 
-        dialogTexts.Add(new DialogData("/color:#B45ACF/Clicking on a tile that is adjacent to the empty space, will move the tile into the space.", "SYSTEM"));
-        DialogManager.Show(dialogTexts);
+            dialogTexts.Add(new DialogData("/color:#B45ACF/Clicking on a tile that is adjacent to the empty space, will move the tile into the space.", "SYSTEM"));
+            DialogManager.Show(dialogTexts);
+            puzzle1_tutorial = false;
+        }
     }
 
     public void postPuzzleDialogue_1()
@@ -107,12 +123,26 @@ public class MASTERSCRIPT : MonoBehaviour
     //Item Interactions (passes through key word. Yes this is messy but if I had done this with public strings it would have been a MESS
     public void objInteraction(string keyWord)
     {
-        if(keyWord == "ItemTest")
+        if (keyWord == "ItemTest")
         {
 
             DialogData dialogData = new DialogData("I am an item. Edit my text in MasterScript.");
             DialogManager.Show(dialogData);
         }
+
+
+        else if (keyWord == "bottle")
+        {
+            DialogData dialogData = new DialogData("A old broken bottle. I wonder how many people have been here.", "Medium");
+            DialogManager.Show(dialogData);
+        }
+
+        else if (keyWord == "Chandelier")
+        {
+            DialogData dialogData = new DialogData("An old chandelier... hope it doesn't fall.", "Medium");
+            DialogManager.Show(dialogData);
+        }
     }
+
     #endregion
 }
