@@ -142,6 +142,12 @@ public class MASTERSCRIPT : MonoBehaviour
             DialogData dialogData = new DialogData("An old chandelier... hope it doesn't fall.", "Medium");
             DialogManager.Show(dialogData);
         }
+
+        else if (keyWord == "Wallpaper")
+        {
+            DialogData dialogData = new DialogData("This place is really falling apart...", "Medium");
+            DialogManager.Show(dialogData);
+        }
     }
 
     #endregion

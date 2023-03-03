@@ -13,12 +13,15 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     public string keyWord;
     public GameObject itemDisplayBox; // connect to itemDisplay in Dialog Asset
     Image targetImage;
+    RectTransform sourceRectT;
+    
     //public inGameDialogManager IG_DialogManager;
 
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        sourceRectT = GetComponent<RectTransform>();
 
     }
 
@@ -43,8 +46,14 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     void displayItem()
     {
         itemDisplayBox.SetActive(true);
-        Image targetImage = itemDisplayBox.GetComponent<Image>();
+        
+        SpriteRenderer targetImage = itemDisplayBox.GetComponent<SpriteRenderer>();
+        RectTransform targetRect = itemDisplayBox.GetComponent<RectTransform>();
         targetImage.sprite = spriteRenderer.sprite;
-        targetImage.rectTransform.localScale = new Vector3(4, 4, 1);
+       
+        targetRect.localScale = new Vector3(1.5f, 1.5f, 1);
+
+        //targetRect.sizeDelta = new Vector2(sourceRectT.sizeDelta.x*100,sourceRectT.sizeDelta.y*100); 
+       
     }
 }
