@@ -25,7 +25,7 @@ public class ChangeScene : MonoBehaviour
 
     private void GameManagerOnGameStateChanged(GameState state)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void quitGame()
