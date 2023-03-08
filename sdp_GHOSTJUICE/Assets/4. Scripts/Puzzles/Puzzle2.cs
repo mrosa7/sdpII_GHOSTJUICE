@@ -14,11 +14,6 @@ public class Puzzle2 : MonoBehaviour
     Collider2D hourHand_Col;
     Collider2D minuteHand_Col;
 
-    public GameObject solvedHour;
-    public GameObject solvedMinute;
-    Collider2D solvedHour_Col;
-    Collider2D solvedMinute_Col;
-
     private Camera myCam;
     private Vector3 screenPos;
     private float angleOffset;
@@ -29,6 +24,9 @@ public class Puzzle2 : MonoBehaviour
     bool isMoving;
     bool isMovingHour;
     bool isMovingMinute;
+
+    bool hourIsSolved = false;
+    bool minuteIsSolved = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +36,8 @@ public class Puzzle2 : MonoBehaviour
         isMovingHour = false;
         isMovingMinute = false;
         isMoving = false;
+
+        
 
         // solvedHour_Col = solvedHour.GetComponent<Collider2D>();
         // solvedMinute_Col = solvedMinute.GetComponent<Collider2D>();
@@ -57,6 +57,29 @@ public class Puzzle2 : MonoBehaviour
        
     }*/
 
+    void checkSolved()
+    {
+        /*        float hourZ = hourHand.transform.rotation.z;
+                float minuteZ = minuteHand.transform.rotation.z;
+                Debug.Log(hourZ);
+                if (minuteZ >= 86f && minuteZ <= 93f)
+                {
+                    minuteIsSolved = true;
+                    Debug.Log("MINUTE IS SOLVED");
+
+                }
+                if (-135f <= hourZ && hourZ <= -148f)
+                {
+                    hourIsSolved = true;
+                    Debug.Log("HOur IS SOLVED");
+                }*/
+        hourIsSolved = hourHand.GetComponent<Puzzle2_HandCollision>().isSolved;
+        minuteIsSolved = minuteHand.GetComponent<Puzzle2_HandCollision>().isSolved;
+        if(minuteIsSolved && hourIsSolved)
+        {
+            Solved();
+        }
+    }
     void Solved()
     {
         Debug.Log("Running Solved Protocol");
@@ -94,7 +117,7 @@ public class Puzzle2 : MonoBehaviour
                         screenPos = myCam.WorldToScreenPoint(transform.position);
                         Vector3 vec3 = Input.mousePosition - screenPos;
                         angleOffset = (Mathf.Atan2(hourHand.transform.right.y, hourHand.transform.right.x) - Mathf.Atan2(vec3.y, vec3.x)) * Mathf.Rad2Deg;
-                        Debug.Log(angleOffset);
+                        //Debug.Log(angleOffset);
                     }
 
                 }
@@ -109,7 +132,7 @@ public class Puzzle2 : MonoBehaviour
                         screenPos = myCam.WorldToScreenPoint(transform.position);
                         Vector3 vec3 = Input.mousePosition - screenPos;
                         angleOffset = (Mathf.Atan2(minuteHand.transform.right.y, minuteHand.transform.right.x) - Mathf.Atan2(vec3.y, vec3.x)) * Mathf.Rad2Deg;
-                        Debug.Log(angleOffset);
+                        //Debug.Log(angleOffset);
                     }
                 }
             }
@@ -144,6 +167,8 @@ public class Puzzle2 : MonoBehaviour
             isMovingMinute = false;
             isMoving = false;
         }
+
+        checkSolved();
     }
 
 }
