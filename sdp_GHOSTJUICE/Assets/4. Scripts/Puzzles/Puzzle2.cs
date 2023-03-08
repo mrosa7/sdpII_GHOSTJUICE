@@ -27,20 +27,17 @@ public class Puzzle2 : MonoBehaviour
 
     bool hourIsSolved = false;
     bool minuteIsSolved = false;
+
     // Start is called before the first frame update
     void Start()
     {
         myCam = Camera.main;
-        hourHand_Col = hourGRAB.GetComponent<Collider2D>();
+        hourHand_Col = hourGRAB.GetComponent<Collider2D>(); // get collider to rotate
         minuteHand_Col = minuteGRAB.GetComponent<Collider2D>();
-        isMovingHour = false;
+        isMovingHour = false; // set bools. Nothing should be moving
         isMovingMinute = false;
         isMoving = false;
-
-        
-
-        // solvedHour_Col = solvedHour.GetComponent<Collider2D>();
-        // solvedMinute_Col = solvedMinute.GetComponent<Collider2D>();
+       
     }
     /*private void Update()
     {
@@ -59,20 +56,7 @@ public class Puzzle2 : MonoBehaviour
 
     void checkSolved()
     {
-        /*        float hourZ = hourHand.transform.rotation.z;
-                float minuteZ = minuteHand.transform.rotation.z;
-                Debug.Log(hourZ);
-                if (minuteZ >= 86f && minuteZ <= 93f)
-                {
-                    minuteIsSolved = true;
-                    Debug.Log("MINUTE IS SOLVED");
-
-                }
-                if (-135f <= hourZ && hourZ <= -148f)
-                {
-                    hourIsSolved = true;
-                    Debug.Log("HOur IS SOLVED");
-                }*/
+        // checks if both the hour and minute is in the right place. 
         hourIsSolved = hourHand.GetComponent<Puzzle2_HandCollision>().isSolved;
         minuteIsSolved = minuteHand.GetComponent<Puzzle2_HandCollision>().isSolved;
         if(minuteIsSolved && hourIsSolved)
@@ -88,31 +72,30 @@ public class Puzzle2 : MonoBehaviour
         enabled = false;
     }
 
-    /* void Update()
-     {
-         Vector2 direction = myCam.ScreenToViewportPoint(Input.mousePosition) - transform.position;
-         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-         Quaternion rotation = Quaternion.AngleAxis(angle-90,Vector3.forward);
-         transform.rotation = rotation;
-     }*/
+    
     // Update is called once per frame
     void Update()
     {
         Vector3 mousePos = myCam.ScreenToWorldPoint(Input.mousePosition);
 
+        // if mouse is clicked
         if (Input.GetMouseButtonDown(0))
         {
-            if (isMoving == false)
+            if (isMoving == false) // if it wasn't already moving
             {
+                // if the player clicked on the hour hand collider wheel.
                 if (hourHand_Col == Physics2D.OverlapPoint(mousePos))
-                {
+                {   
+                    //update who is moving
                     isMoving = true;
                     isMovingHour = true;
                     isMovingMinute = false;
+                    // get distance of the click from the origin of this game object (puzzle manager 2)
+                    // if its below a certain distance, it knowns to move the hour hand collider. I have this check here bc they overlap.
                     float distance = Vector2.Distance(Physics2D.OverlapPoint(mousePos).transform.position, transform.position);
 
                     if (innerRadMin <= distance && isMovingHour == true)
-                    {
+                    { //Calculate the movement of hour hand game object.
                         //Debug.Log("I'm being Rotated??");
                         screenPos = myCam.WorldToScreenPoint(transform.position);
                         Vector3 vec3 = Input.mousePosition - screenPos;
@@ -123,12 +106,16 @@ public class Puzzle2 : MonoBehaviour
                 }
                 else if (minuteHand_Col == Physics2D.OverlapPoint(mousePos))
                 {
+                    //update who is moving.
                     isMoving = true;
                     isMovingMinute = true;
                     isMovingHour = false;
                     float distance = Vector2.Distance(Physics2D.OverlapPoint(mousePos).transform.position, transform.position);
+                    // get distance of the click from the origin of this game object (puzzle manager 2)
+                    // if its above a certain distance, it knowns to move the minute hand collider. I have this check here bc they overlap.
                     if (distance >= outerRadMin && isMovingMinute == true)
                     {
+                        //Calculate the movement of minute hand game object.
                         screenPos = myCam.WorldToScreenPoint(transform.position);
                         Vector3 vec3 = Input.mousePosition - screenPos;
                         angleOffset = (Mathf.Atan2(minuteHand.transform.right.y, minuteHand.transform.right.x) - Mathf.Atan2(vec3.y, vec3.x)) * Mathf.Rad2Deg;
@@ -138,10 +125,13 @@ public class Puzzle2 : MonoBehaviour
             }
 
         }
+
+        // runs as the mouse button is being held down
         if (Input.GetMouseButton(0))
         {
             if (isMoving == true)
             {
+                //updates hour hand based on above calculation
                 if (hourHand_Col == Physics2D.OverlapPoint(mousePos)&& isMovingHour == true)
                 {
                     //Debug.Log("I'm being Rotated2222222??");
@@ -150,6 +140,7 @@ public class Puzzle2 : MonoBehaviour
                     hourHand.transform.eulerAngles = new Vector3(0, 0, angle + angleOffset);
                     //hourGRAB.transform.eulerAngles = new Vector3(0, 0, angle + angleOffset);
                 }
+                //updates minute hand based on above calculation
                 if (minuteHand_Col == Physics2D.OverlapPoint(mousePos) && isMovingMinute == true)
                 {
                     //Debug.Log("I'm being Rotated2222222??");
@@ -161,6 +152,8 @@ public class Puzzle2 : MonoBehaviour
             }
 
         }
+        // if mmouse is released. 
+        // stop moving everything. 
         if (Input.GetMouseButtonUp(0))
         {
             isMovingHour = false;
@@ -168,7 +161,7 @@ public class Puzzle2 : MonoBehaviour
             isMoving = false;
         }
 
-        checkSolved();
+        checkSolved(); // check if they are in the correct spot.
     }
 
 }

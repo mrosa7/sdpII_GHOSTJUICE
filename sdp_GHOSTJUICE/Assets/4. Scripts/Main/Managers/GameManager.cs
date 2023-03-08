@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
+            //base Game. No puzzles solved. 
             case GameState.StartGame:
                 //inGameDialogManager.GhostState = "inital";
                 break;

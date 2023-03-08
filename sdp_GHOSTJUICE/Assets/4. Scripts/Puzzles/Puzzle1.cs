@@ -86,6 +86,7 @@ public class Puzzle1 : MonoBehaviour
     
     public void Shuffle()
     {
+        //iterates through positions and swaps the pos of current index with a random index pos
         for (int i = 0; i < 8; i++)
         {
             if(Tiles[i] != null){
@@ -97,6 +98,8 @@ public class Puzzle1 : MonoBehaviour
         }
     }
 
+    //Coroutine for animation + moving position. Does not set new empty until its done.
+    // Does not allow user input until coroutine is done.
     IEnumerator movePiece(RaycastHit2D hitLocal, Vector2 lastEmptySpacePosition)
     {
         float timeElapsed = 0;
