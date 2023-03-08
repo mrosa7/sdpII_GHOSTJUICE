@@ -13,7 +13,7 @@ public class Puzzle2 : MonoBehaviour
 
     Collider2D hourHand_Col;
     Collider2D minuteHand_Col;
-    
+
     public GameObject solvedHour;
     public GameObject solvedMinute;
     Collider2D solvedHour_Col;
@@ -24,16 +24,23 @@ public class Puzzle2 : MonoBehaviour
     private float angleOffset;
 
     public float innerRadMin;
+    public float outerRadMin;
 
+    bool isMoving;
+    bool isMovingHour;
+    bool isMovingMinute;
     // Start is called before the first frame update
     void Start()
     {
         myCam = Camera.main;
         hourHand_Col = hourGRAB.GetComponent<Collider2D>();
         minuteHand_Col = minuteGRAB.GetComponent<Collider2D>();
+        isMovingHour = false;
+        isMovingMinute = false;
+        isMoving = false;
 
-       // solvedHour_Col = solvedHour.GetComponent<Collider2D>();
-       // solvedMinute_Col = solvedMinute.GetComponent<Collider2D>();
+        // solvedHour_Col = solvedHour.GetComponent<Collider2D>();
+        // solvedMinute_Col = solvedMinute.GetComponent<Collider2D>();
     }
     /*private void Update()
     {
@@ -72,33 +79,71 @@ public class Puzzle2 : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-
-            if (hourHand_Col == Physics2D.OverlapPoint(mousePos))
+            if (isMoving == false)
             {
-                float distance = Vector2.Distance(Physics2D.OverlapPoint(mousePos).transform.position, transform.position);
-
-                if (innerRadMin <= distance)
+                if (hourHand_Col == Physics2D.OverlapPoint(mousePos))
                 {
-                    //Debug.Log("I'm being Rotated??");
-                    screenPos = myCam.WorldToScreenPoint(transform.position);
-                    Vector3 vec3 = Input.mousePosition - screenPos;
-                    angleOffset = (Mathf.Atan2(hourHand.transform.right.y, hourHand.transform.right.x) - Mathf.Atan2(vec3.y, vec3.x)) * Mathf.Rad2Deg;
-                    Debug.Log(angleOffset);
+                    isMoving = true;
+                    isMovingHour = true;
+                    isMovingMinute = false;
+                    float distance = Vector2.Distance(Physics2D.OverlapPoint(mousePos).transform.position, transform.position);
+
+                    if (innerRadMin <= distance && isMovingHour == true)
+                    {
+                        //Debug.Log("I'm being Rotated??");
+                        screenPos = myCam.WorldToScreenPoint(transform.position);
+                        Vector3 vec3 = Input.mousePosition - screenPos;
+                        angleOffset = (Mathf.Atan2(hourHand.transform.right.y, hourHand.transform.right.x) - Mathf.Atan2(vec3.y, vec3.x)) * Mathf.Rad2Deg;
+                        Debug.Log(angleOffset);
+                    }
+
                 }
-                
+                else if (minuteHand_Col == Physics2D.OverlapPoint(mousePos))
+                {
+                    isMoving = true;
+                    isMovingMinute = true;
+                    isMovingHour = false;
+                    float distance = Vector2.Distance(Physics2D.OverlapPoint(mousePos).transform.position, transform.position);
+                    if (distance >= outerRadMin && isMovingMinute == true)
+                    {
+                        screenPos = myCam.WorldToScreenPoint(transform.position);
+                        Vector3 vec3 = Input.mousePosition - screenPos;
+                        angleOffset = (Mathf.Atan2(minuteHand.transform.right.y, minuteHand.transform.right.x) - Mathf.Atan2(vec3.y, vec3.x)) * Mathf.Rad2Deg;
+                        Debug.Log(angleOffset);
+                    }
+                }
             }
+
         }
         if (Input.GetMouseButton(0))
         {
-
-            if (hourHand_Col == Physics2D.OverlapPoint(mousePos))
+            if (isMoving == true)
             {
-                //Debug.Log("I'm being Rotated2222222??");
-                Vector3 vec3 = Input.mousePosition - screenPos;
-                float angle = Mathf.Atan2(vec3.y, vec3.x) * Mathf.Rad2Deg;
-                hourHand.transform.eulerAngles = new Vector3(0, 0, angle + angleOffset);
-                //hourGRAB.transform.eulerAngles = new Vector3(0, 0, angle + angleOffset);
+                if (hourHand_Col == Physics2D.OverlapPoint(mousePos)&& isMovingHour == true)
+                {
+                    //Debug.Log("I'm being Rotated2222222??");
+                    Vector3 vec3 = Input.mousePosition - screenPos;
+                    float angle = Mathf.Atan2(vec3.y, vec3.x) * Mathf.Rad2Deg;
+                    hourHand.transform.eulerAngles = new Vector3(0, 0, angle + angleOffset);
+                    //hourGRAB.transform.eulerAngles = new Vector3(0, 0, angle + angleOffset);
+                }
+                if (minuteHand_Col == Physics2D.OverlapPoint(mousePos) && isMovingMinute == true)
+                {
+                    //Debug.Log("I'm being Rotated2222222??");
+                    Vector3 vec3 = Input.mousePosition - screenPos;
+                    float angle = Mathf.Atan2(vec3.y, vec3.x) * Mathf.Rad2Deg;
+                    minuteHand.transform.eulerAngles = new Vector3(0, 0, angle + angleOffset);
+                    //hourGRAB.transform.eulerAngles = new Vector3(0, 0, angle + angleOffset);
+                }
             }
+
         }
-     }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isMovingHour = false;
+            isMovingMinute = false;
+            isMoving = false;
+        }
     }
+
+}
