@@ -118,6 +118,18 @@ public class MASTERSCRIPT : MonoBehaviour
     }
     #endregion
 
+    // Clock Puzzle DIalogue
+    #region
+    public void postPuzzleDialogue_2()
+    {
+        var dialogTexts = new List<DialogData>();
+        dialogTexts.Add(new DialogData("... I can't read analog clocks.", "Medium"));
+        dialogTexts.Add(new DialogData("...It's 5:45.", "Ida"));
+
+        DialogManager.Show(dialogTexts);
+    }
+
+    #endregion
     //OBJECT INTERACTION LINES
     #region
     //Item Interactions (passes through key word. Yes this is messy but if I had done this with public strings it would have been a MESS

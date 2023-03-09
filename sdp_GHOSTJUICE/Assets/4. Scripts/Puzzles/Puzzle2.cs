@@ -67,8 +67,8 @@ public class Puzzle2 : MonoBehaviour
     void Solved()
     {
         Debug.Log("Running Solved Protocol");
-        // Start dialogue Sequence
-        // Advance Game state
+        GameManager.Instance.UpdateGameState(GameState.SecondPuzzleComplete);
+        MASTERSCRIPT.Instance.postPuzzleDialogue_2();
         enabled = false;
     }
 

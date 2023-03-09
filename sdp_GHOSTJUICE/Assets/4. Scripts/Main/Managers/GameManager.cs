@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.SecondPuzzleComplete:
-
+                Debug.Log("GAME STATE HAS BEEN CHANGED");
                 break;
             case GameState.ThirdPuzzleComplete:
 
