@@ -255,6 +255,7 @@ public class MASTERSCRIPT : MonoBehaviour
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("(Hey, there seems to be something in here.)", "Medium"));
             dialogTexts.Add(new DialogData("[Found: Box of Matches].", "SYSTEM"));
+            DialogManager.Show(dialogTexts);
         }
     }
 

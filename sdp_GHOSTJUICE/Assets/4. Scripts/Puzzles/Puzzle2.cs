@@ -11,6 +11,9 @@ public class Puzzle2 : MonoBehaviour
     public GameObject hourGRAB;
     public GameObject minuteGRAB;
 
+    public GameObject hourArea;
+    public GameObject minuteArea;
+
     Collider2D hourHand_Col;
     Collider2D minuteHand_Col;
 
@@ -131,9 +134,11 @@ public class Puzzle2 : MonoBehaviour
         {
             if (isMoving == true)
             {
+                
                 //updates hour hand based on above calculation
                 if (hourHand_Col == Physics2D.OverlapPoint(mousePos)&& isMovingHour == true)
                 {
+                    hourArea.SetActive(true);
                     //Debug.Log("I'm being Rotated2222222??");
                     Vector3 vec3 = Input.mousePosition - screenPos;
                     float angle = Mathf.Atan2(vec3.y, vec3.x) * Mathf.Rad2Deg;
@@ -143,6 +148,7 @@ public class Puzzle2 : MonoBehaviour
                 //updates minute hand based on above calculation
                 if (minuteHand_Col == Physics2D.OverlapPoint(mousePos) && isMovingMinute == true)
                 {
+                    minuteArea.SetActive(true);
                     //Debug.Log("I'm being Rotated2222222??");
                     Vector3 vec3 = Input.mousePosition - screenPos;
                     float angle = Mathf.Atan2(vec3.y, vec3.x) * Mathf.Rad2Deg;
@@ -159,6 +165,8 @@ public class Puzzle2 : MonoBehaviour
             isMovingHour = false;
             isMovingMinute = false;
             isMoving = false;
+            hourArea.SetActive(false);
+            minuteArea.SetActive(false);
         }
 
         checkSolved(); // check if they are in the correct spot.
