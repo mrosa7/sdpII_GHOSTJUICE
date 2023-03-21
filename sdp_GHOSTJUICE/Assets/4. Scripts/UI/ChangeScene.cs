@@ -12,10 +12,16 @@ public class ChangeScene : MonoBehaviour
     public void LoadGame()
     {
        // GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         //replace with intro sequence later
     }
 
+    public void LoadIntro()
+    {
+        // GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
+        SceneManager.LoadScene(1);
+        //replace with intro sequence later
+    }
     public void backToStart()
     {
         //GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/1. Scenes/StartScreen.unity
     guid: eff8fe3a1b8eb754e9ec2e9109c189f7
   - enabled: 1
+    path: Assets/1. Scenes/Intro.unity
+    guid: e60fcb1145d68de4991460c9430d14f5
+  - enabled: 1
     path: Assets/1. Scenes/Main.unity
     guid: af6018828189e03498e279027a86c51b
   m_configObjects: {}
