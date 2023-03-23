@@ -93,7 +93,7 @@ namespace Doublsb.Dialog
 
             if(_current_Character != null)
                 _emote("Normal");
-
+            
             _textingRoutine = StartCoroutine(Activate());
         }
 
@@ -124,9 +124,8 @@ namespace Doublsb.Dialog
 
             if(_printingRoutine != null)
                 StopCoroutine(_printingRoutine);
-            /*SpriteRenderer itemBox = itemDisplay.GetComponent<SpriteRenderer>();
-            itemBox.sprite = null;*/
-            itemDisplay.SetActive(false);
+           
+            
             Printer.SetActive(false);
             Overlay.SetActive(false);
             clickOverlay.SetActive(false);
@@ -140,6 +139,7 @@ namespace Doublsb.Dialog
             if (_current_Data.Callback != null)
             {
                 _current_Data.Callback.Invoke();
+                
                 _current_Data.Callback = null;
             }
         }
@@ -233,7 +233,7 @@ namespace Doublsb.Dialog
             _lastDelay = 0.1f;
             Printer_Text.text = string.Empty;
             NameLabel_Text.text = string.Empty;
-            itemDisplay.SetActive(true);
+           // itemDisplay.SetActive(true);
 
             Printer.SetActive(true);
             Overlay.SetActive(true);
@@ -294,6 +294,10 @@ namespace Doublsb.Dialog
 
                 while (state != State.Deactivate) { yield return null; }
             }
+            SpriteRenderer itemBox = itemDisplay.GetComponent<SpriteRenderer>();
+           itemBox.sprite = null;
+            itemDisplay.SetActive(false);
+
         }
 
         // LIST OF DIALOGUE COMMANDS

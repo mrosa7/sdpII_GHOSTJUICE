@@ -192,9 +192,9 @@ public class MASTERSCRIPT : MonoBehaviour
     {
         if (keyWord == "ItemTest")
         {
-
-            DialogData dialogData = new DialogData("I am an item. Edit my text in MasterScript.");
-            DialogManager.Show(dialogData);
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("I am an item. Edit my text in MasterScript."));
+            DialogManager.Show(dialogTexts);
         }
 
 
@@ -228,14 +228,16 @@ public class MASTERSCRIPT : MonoBehaviour
 
         else if (keyWord == "Chandelier")
         {
-            DialogData dialogData = new DialogData("An old chandelier... hope it doesn't fall.", "Medium");
-            DialogManager.Show(dialogData);
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("An old chandelier... hope it doesn't fall.", "Medium"));
+            DialogManager.Show(dialogTexts);
         }
 
         else if (keyWord == "Wallpaper")
         {
-            DialogData dialogData = new DialogData("This place is really falling apart...", "Medium");
-            DialogManager.Show(dialogData);
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("This place is really falling apart...", "Medium"));
+            DialogManager.Show(dialogTexts);
         }
         else if (keyWord == "Gramophone")
         {

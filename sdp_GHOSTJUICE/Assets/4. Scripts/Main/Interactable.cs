@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using Doublsb.Dialog;
 
 
 public class Interactable : MonoBehaviour, IPointerClickHandler
@@ -15,7 +16,8 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     public GameObject itemDisplayBox; // connect to itemDisplay in Dialog Asset
     Image targetImage;
     RectTransform sourceRectT;
-    
+    public DialogManager DialogManager;
+
     //public inGameDialogManager IG_DialogManager;
 
 
@@ -44,6 +46,8 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
         Debug.Log("CLICKING:" + name);
         MASTERSCRIPT.Instance.objInteraction(keyWord);
         objectiveTriggerCheck(keyWord);
+        
+        
     }
 
     void displayItem()
@@ -53,7 +57,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
         SpriteRenderer targetImage = itemDisplayBox.GetComponent<SpriteRenderer>();
         RectTransform targetRect = itemDisplayBox.GetComponent<RectTransform>();
         targetImage.sprite = spriteRenderer.sprite;
-       
+        Debug.Log("I'm RUNNING");
         targetRect.localScale = new Vector3(1.5f, 1.5f, 1);
 
         //targetRect.sizeDelta = new Vector2(sourceRectT.sizeDelta.x*100,sourceRectT.sizeDelta.y*100); 
