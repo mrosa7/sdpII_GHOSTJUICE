@@ -124,7 +124,8 @@ namespace Doublsb.Dialog
 
             if(_printingRoutine != null)
                 StopCoroutine(_printingRoutine);
-            _initialize();
+            /*SpriteRenderer itemBox = itemDisplay.GetComponent<SpriteRenderer>();
+            itemBox.sprite = null;*/
             itemDisplay.SetActive(false);
             Printer.SetActive(false);
             Overlay.SetActive(false);
@@ -233,6 +234,7 @@ namespace Doublsb.Dialog
             Printer_Text.text = string.Empty;
             NameLabel_Text.text = string.Empty;
             itemDisplay.SetActive(true);
+
             Printer.SetActive(true);
             Overlay.SetActive(true);
             clickOverlay.SetActive(true);
