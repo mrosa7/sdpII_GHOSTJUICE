@@ -220,7 +220,7 @@ namespace Doublsb.Dialog
             {
                 Transform Child = Characters.transform.Find(name);
                 if (Child != null) _current_Character = Child.GetComponent<Character>();
-                Debug.Log(Child.gameObject.name);
+                //Debug.Log(Child.gameObject.name);
                 if (Child != null) NameLabel_Text.text = Child.GetComponent<Character>().name;
             }
         }
@@ -232,7 +232,7 @@ namespace Doublsb.Dialog
             _lastDelay = 0.1f;
             Printer_Text.text = string.Empty;
             NameLabel_Text.text = string.Empty;
-
+            itemDisplay.SetActive(true);
             Printer.SetActive(true);
             Overlay.SetActive(true);
             clickOverlay.SetActive(true);

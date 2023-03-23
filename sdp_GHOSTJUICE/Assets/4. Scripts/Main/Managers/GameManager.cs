@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public GameState State;
     public static event Action<GameState> OnGameStateChanged;
     public inGameDialogManager inGameDialogManager;
+    
+    
+    public bool objective1_matches = false;
+    public bool objective1_paper = false;
 
     void Awake()
     {

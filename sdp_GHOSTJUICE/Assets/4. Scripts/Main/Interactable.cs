@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class Interactable : MonoBehaviour, IPointerClickHandler
@@ -38,9 +39,11 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     //when interacting with object
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("UR SUPPOSE TO SAY SOMETHING DAMMNIT");
+       // Debug.Log("UR SUPPOSE TO SAY SOMETHING DAMMNIT");
         displayItem();
+        Debug.Log("CLICKING:" + name);
         MASTERSCRIPT.Instance.objInteraction(keyWord);
+        objectiveTriggerCheck(keyWord);
     }
 
     void displayItem()
@@ -55,5 +58,25 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
 
         //targetRect.sizeDelta = new Vector2(sourceRectT.sizeDelta.x*100,sourceRectT.sizeDelta.y*100); 
        
+    }
+
+    void objectiveTriggerCheck(string key)
+    {
+        if (key == "Chest")
+        {
+            GameObject textToStrike = GameObject.Find("obj1_text");
+            TMP_Text text = textToStrike.GetComponent<TMPro.TextMeshProUGUI>();
+            text.fontStyle = FontStyles.Strikethrough;
+            GameManager.Instance.objective1_matches = true;
+
+        }
+
+        else if (key == "bottle")
+        {
+            GameObject textToStrike = GameObject.Find("obj1_text2");
+            TMP_Text text = textToStrike.GetComponent<TMPro.TextMeshProUGUI>();
+            text.fontStyle = FontStyles.Strikethrough;
+            GameManager.Instance.objective1_paper = true;
+        }
     }
 }
