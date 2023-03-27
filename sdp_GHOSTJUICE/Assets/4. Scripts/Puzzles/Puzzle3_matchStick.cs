@@ -109,6 +109,7 @@ public class Puzzle3_matchStick : MonoBehaviour
                 objective2.SetActive(false);
                 TMP_Text text = objective.GetComponent<TMPro.TextMeshProUGUI>();
                 text.SetText("Explore the Wagner House");
+                canClick = false;
                 // play sound effect
             }
             else
@@ -117,7 +118,10 @@ public class Puzzle3_matchStick : MonoBehaviour
                 canClick = false;
                 // play sound effect
                 StartCoroutine(moveToStart(gameObject, startPos));
-                
+                /*if (collision == collision.isActiveAndEnabled)
+                {
+                    
+                }*/
             }
             
         }
