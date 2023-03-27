@@ -36,7 +36,7 @@ public class Puzzle1_trigger : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseOver()
     {
-        spriteRenderer.color = Color.yellow;
+        spriteRenderer.color = Color.magenta;
     }
     private void OnMouseExit()
     {
