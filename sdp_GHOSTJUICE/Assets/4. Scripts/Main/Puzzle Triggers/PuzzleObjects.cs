@@ -11,6 +11,7 @@ public class PuzzleObjects : MonoBehaviour, IPointerClickHandler
     public GameObject PuzzleToShow;
     public GameObject UIToHide;
     public GameObject TriggerToHide;
+    public GameObject ObjectToHide;
     
     //public string keyWord;
     //public GameObject itemDisplayBox; // connect to itemDisplay in Dialog Asset
@@ -28,6 +29,7 @@ public class PuzzleObjects : MonoBehaviour, IPointerClickHandler
         PuzzleToShow.SetActive(true);
         UIToHide.SetActive(false);
         TriggerToHide.SetActive(false);
+        ObjectToHide.SetActive(false);
     }
 
     private void OnMouseOver()

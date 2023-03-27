@@ -116,7 +116,7 @@ public class Puzzle2 : MonoBehaviour
                     float distance = Vector2.Distance(Physics2D.OverlapPoint(mousePos).transform.position, transform.position);
                     // get distance of the click from the origin of this game object (puzzle manager 2)
                     // if its above a certain distance, it knowns to move the minute hand collider. I have this check here bc they overlap.
-                    if (distance >= outerRadMin && isMovingMinute == true)
+                    if (distance >outerRadMin && isMovingMinute == true)
                     {
                         //Calculate the movement of minute hand game object.
                         screenPos = myCam.WorldToScreenPoint(transform.position);

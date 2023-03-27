@@ -9,8 +9,11 @@ public class GameManager : MonoBehaviour
     public GameState State;
     public static event Action<GameState> OnGameStateChanged;
     public inGameDialogManager inGameDialogManager;
-    
-    
+
+    public GameObject upstairsNav;
+    public GameObject hallwayForwardNav;
+    public GameObject bedroomUpNav;
+
     public bool objective1_matches = false;
     public bool objective1_paper = false;
 
@@ -41,13 +44,15 @@ public class GameManager : MonoBehaviour
                 // reload some assets, make things avalible.
                 // init some dialogue?
                 Debug.Log("GAME STATE HAS BEEN CHANGED");
+                upstairsNav.SetActive(true);
                 break;
 
             case GameState.SecondPuzzleComplete:
                 Debug.Log("GAME STATE HAS BEEN CHANGED");
+                hallwayForwardNav.SetActive(true);
                 break;
             case GameState.ThirdPuzzleComplete:
-
+                bedroomUpNav.SetActive(true);
                 break;
             case GameState.EndGameSeq:
                 // ????????

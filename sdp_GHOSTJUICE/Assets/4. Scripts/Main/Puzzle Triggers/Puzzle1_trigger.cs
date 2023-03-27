@@ -10,7 +10,7 @@ public class Puzzle1_trigger : MonoBehaviour, IPointerClickHandler
     public GameObject PuzzleToShow;
     public GameObject UIToHide;
     public GameObject TriggerToHide;
-
+    public GameObject ObjTxtToHide;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,9 +25,11 @@ public class Puzzle1_trigger : MonoBehaviour, IPointerClickHandler
         else
         {
             MASTERSCRIPT.Instance.objInteraction("puzzle1_goahead");
-            /*PuzzleToShow.SetActive(true);
+            PuzzleToShow.SetActive(true);
             UIToHide.SetActive(false);
-            TriggerToHide.SetActive(false);*/
+            TriggerToHide.SetActive(false);
+            ObjTxtToHide.SetActive(false);
+            
         }
        
     }

@@ -116,7 +116,7 @@ public class Puzzle1 : MonoBehaviour
         allowUserInput = true;
         if (checkSolved())
         {
-            GameManager.Instance.UpdateGameState(GameState.FirstPuzzleComplete);
+            GameManager.Instance.UpdateGameState(GameState.ThirdPuzzleComplete);
             MASTERSCRIPT.Instance.postPuzzleDialogue_1();
             Debug.Log("ALL SOLVED");
             this.enabled = false;

@@ -294,11 +294,13 @@ namespace Doublsb.Dialog
 
                 while (state != State.Deactivate) { yield return null; }
             }
-            SpriteRenderer itemBox = itemDisplay.GetComponent<SpriteRenderer>();
+           SpriteRenderer itemBox = itemDisplay.GetComponent<SpriteRenderer>();
            itemBox.sprite = null;
-            itemDisplay.SetActive(false);
+           itemDisplay.SetActive(false);
 
         }
+
+
 
         // LIST OF DIALOGUE COMMANDS
         private IEnumerator Activate()
