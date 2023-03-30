@@ -44,6 +44,7 @@ namespace Doublsb.Dialog
         public GameObject Overlay;
         public GameObject NameLabel;
         public GameObject clickOverlay;
+        public GameObject[] Ghosts;
 
         [Header("UI Objects")]
         public Text Printer_Text;
@@ -132,7 +133,13 @@ namespace Doublsb.Dialog
             Characters.SetActive(false);
             Selector.SetActive(false);
             NameLabel.SetActive(false);
-
+            foreach (GameObject Ghost in Ghosts)
+            {
+                if (Ghost.activeSelf == false)
+                {
+                    Ghost.SetActive(true);
+                }
+            }
 
             state = State.Deactivate;
 
@@ -239,6 +246,13 @@ namespace Doublsb.Dialog
             Overlay.SetActive(true);
             clickOverlay.SetActive(true);
             NameLabel.SetActive(true);
+            foreach (GameObject Ghost in Ghosts)
+            {
+               if(Ghost.activeSelf == true)
+                {
+                    Ghost.SetActive(false);
+                }
+            }
             // only shows up if there is a character
             Characters.SetActive(_current_Character != null);
             NameLabel.SetActive(_current_Character != null);

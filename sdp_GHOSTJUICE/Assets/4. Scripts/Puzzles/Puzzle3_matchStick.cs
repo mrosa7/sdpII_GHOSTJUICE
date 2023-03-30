@@ -15,6 +15,9 @@ public class Puzzle3_matchStick : MonoBehaviour
     float timer;
     public GameObject objective;
     public GameObject objective2;
+    public GameObject trigger;
+    public GameObject litFireAsset;
+    public bool isSolved = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +45,7 @@ public class Puzzle3_matchStick : MonoBehaviour
         }
         if (canClick)
         {
-            if (selectedObject != null && selectedObject.name == "Match_stick")
+            if (selectedObject != null && selectedObject.name == "Match_stick (MANAGER)")
             {
                 selectedObject.transform.position = new Vector3(startPos.x, mousePosition.y + offset.y);
                 if (selectedObject.transform.position.y <= lBound.transform.position.y)
@@ -57,16 +60,8 @@ public class Puzzle3_matchStick : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && selectedObject != null && selectedObject.name == "Match_stick")
+        if (Input.GetMouseButtonUp(0) && selectedObject != null && selectedObject.name == "Match_stick(MANAGER)")
         {
-            var step = speed * Time.deltaTime; // calculate distance to move
-            selectedObject.transform.position = Vector3.MoveTowards(selectedObject.transform.position, startPos, step);
-            if (Vector3.Distance(transform.position, startPos) < 0.001f)
-            {
-                // Swap the position of the cylinder.
-                selectedObject.transform.position = startPos;
-
-            }
 
             selectedObject = null;
         }
@@ -106,6 +101,9 @@ public class Puzzle3_matchStick : MonoBehaviour
                 Debug.Log("PASS");
                 GameManager.Instance.UpdateGameState(GameState.FirstPuzzleComplete);
                 MASTERSCRIPT.Instance.postPuzzleDialogue_3();
+                trigger.SetActive(false);
+                litFireAsset.SetActive(true);
+                isSolved = true;
                 objective2.SetActive(false);
                 TMP_Text text = objective.GetComponent<TMPro.TextMeshProUGUI>();
                 text.SetText("Explore the Wagner House");
@@ -139,5 +137,17 @@ public class Puzzle3_matchStick : MonoBehaviour
         }
         canClick = true;
         timer = 0f;
+    }
+
+    public void puzzlePassed()
+    {
+        if(isSolved == false)
+        {
+            trigger.SetActive(true);
+        }
+        else
+        {
+            litFireAsset.SetActive(true);
+        }
     }
 }

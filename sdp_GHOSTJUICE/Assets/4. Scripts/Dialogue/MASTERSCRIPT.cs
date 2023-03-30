@@ -22,7 +22,7 @@ public class MASTERSCRIPT : MonoBehaviour
         //Plays this dialogue when the Player first enters the house.
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("Well, time to get down to business.", "Medium"));
-        dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
+        /*dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
         dialogTexts.Add(new DialogData("…Ida, I have reason to believe that you’re here with me right now.", "Medium"));
         // trigger sound effect
         dialogTexts.Add(new DialogData(" If you are, please give me a sign.", "Medium"));
@@ -74,7 +74,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData(" Be a dear and light the fireplace, will ya?", "Ida"));
         dialogTexts.Add(new DialogData("You’ll need matches and some tinder to get the fire going- they’re all hiding around here somewhere", "Ida"));
         dialogTexts.Add(new DialogData("Now get on with it, and no funny business, alright?", "Ida"));
-        dialogTexts.Add(new DialogData("Remember, I’m watching you.", "Ida"));
+        dialogTexts.Add(new DialogData("Remember, I’m watching you.", "Ida"));*/
         DialogManager.Show(dialogTexts);
         //GhostState = "inital";
     }
@@ -239,11 +239,11 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("After all, it ain’t New Year’s without some good drinks, and I couldn’t let my guests go thirsty.", "Ida"));
             dialogTexts.Add(new DialogData("Even if I had to get my bootleg from him, of all people.", "Ida"));
             dialogTexts.Add(new DialogData("Hm. I’ll keep that in mind.", "Medium"));
-            dialogTexts.Add(new DialogData("(Hey, there seems to be something stuck underneath one of the bottles.)", "Medium"));
-            dialogTexts.Add(new DialogData("(Hm. It’s a paper party invitation. Maybe I can use this for the fire.)", "Medium"));
-            dialogTexts.Add(new DialogData("/color:#B45ACF/[Found: Party Invite]", "SYSTEM"));
-            dialogTexts.Add(new DialogData("Hey Miss Wagner, you wouldn’t mind if I used this to get the fire going, would you?", "Medium"));
-            dialogTexts.Add(new DialogData("It’s not like anyone else needs them right now. ", "Medium"));
+            //dialogTexts.Add(new DialogData("(Hey, there seems to be something stuck underneath one of the bottles.)", "Medium"));
+            //dialogTexts.Add(new DialogData("(Hm. It’s a paper party invitation. Maybe I can use this for the fire.)", "Medium"));
+            //dialogTexts.Add(new DialogData("/color:#B45ACF/[Found: Party Invite]", "SYSTEM"));
+           /* dialogTexts.Add(new DialogData("Hey Miss Wagner, you wouldn’t mind if I used this to get the fire going, would you?", "Medium"));
+            dialogTexts.Add(new DialogData("It’s not like anyone else needs them right now. ", "Medium"));*/
             //dialogTexts.Add(new DialogData("…I suppose. You’re gonna need more than just one, though.", "Ida"));
 
             DialogManager.Show(dialogTexts);
@@ -260,6 +260,8 @@ public class MASTERSCRIPT : MonoBehaviour
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("This place is really falling apart...", "Medium"));
+            dialogTexts.Add(new DialogData("But maybe I can burn this.", "Medium"));
+            dialogTexts.Add(new DialogData("/color:#B45ACF/[Found: Kindle]", "SYSTEM"));
             DialogManager.Show(dialogTexts);
         }
         else if (keyWord == "Gramophone")

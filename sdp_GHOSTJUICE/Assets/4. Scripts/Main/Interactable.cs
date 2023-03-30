@@ -85,7 +85,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
 
         }
 
-        else if (key == "bottle")
+        else if (key == "Wallpaper")
         {
             GameObject textToStrike = GameObject.Find("obj1_text2");
             TMP_Text text = textToStrike.GetComponent<TMPro.TextMeshProUGUI>();
