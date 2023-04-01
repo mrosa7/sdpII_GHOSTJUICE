@@ -14,6 +14,9 @@ public class Puzzle1 : MonoBehaviour
     RaycastHit2D hit;
     bool allowUserInput;
     public GameManager GameManager;
+    public GameObject trigger;
+    public bool isSolved;
+    public GameObject swapObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -120,9 +123,21 @@ public class Puzzle1 : MonoBehaviour
             MASTERSCRIPT.Instance.postPuzzleDialogue_1();
             Debug.Log("ALL SOLVED");
             this.enabled = false;
+            isSolved = true;
         }
 
         //hit.transform.position = lastEmptySpacePosition;
     }
 
+    public void puzzlePassed()
+    {
+        if (isSolved == false)
+        {
+            trigger.SetActive(true);
+        }
+        else
+        {
+            swapObj.SetActive(true);
+        }
+    }
 }
