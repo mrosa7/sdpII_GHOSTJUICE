@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public bool objective1_matches = false;
     public bool objective1_paper = false;
+    public bool canClickObj = true;
 
     void Awake()
     {

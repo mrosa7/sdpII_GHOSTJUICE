@@ -30,15 +30,20 @@ public class PuzzleObjects : MonoBehaviour, IPointerClickHandler
         UIToHide.SetActive(false);
         TriggerToHide.SetActive(false);
         ObjectToHide.SetActive(false);
+        GameManager.Instance.canClickObj = false;
     }
 
     private void OnMouseOver()
     {
-        spriteRenderer.color = Color.yellow;
+        spriteRenderer.color = Color.magenta;
     }
     private void OnMouseExit()
     {
         spriteRenderer.color = Color.white; ;
     }
 
+    public void allowClicks()
+    {
+        GameManager.Instance.canClickObj = true;
+    }
 }

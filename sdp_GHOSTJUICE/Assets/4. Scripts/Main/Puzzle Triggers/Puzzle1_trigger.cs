@@ -29,7 +29,7 @@ public class Puzzle1_trigger : MonoBehaviour, IPointerClickHandler
             UIToHide.SetActive(false);
             TriggerToHide.SetActive(false);
             ObjTxtToHide.SetActive(false);
-            
+            GameManager.Instance.canClickObj = false;
         }
        
     }
@@ -41,5 +41,9 @@ public class Puzzle1_trigger : MonoBehaviour, IPointerClickHandler
     private void OnMouseExit()
     {
         spriteRenderer.color = Color.white; ;
+    }
+    public void allowClicks()
+    {
+        GameManager.Instance.canClickObj = true;
     }
 }

@@ -42,12 +42,15 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     //when interacting with object
     public void OnPointerClick(PointerEventData eventData)
     {
-       // Debug.Log("UR SUPPOSE TO SAY SOMETHING DAMMNIT");
-        displayItem();
-        //Debug.Log("CLICKING:" + name);
-        MASTERSCRIPT.Instance.objInteraction(keyWord);
-        objectiveTriggerCheck(keyWord);
-        
+        if(GameManager.Instance.canClickObj == true)
+        {
+            // Debug.Log("UR SUPPOSE TO SAY SOMETHING DAMMNIT");
+            displayItem();
+            //Debug.Log("CLICKING:" + name);
+            MASTERSCRIPT.Instance.objInteraction(keyWord);
+            objectiveTriggerCheck(keyWord);
+        }
+           
         
     }
 
