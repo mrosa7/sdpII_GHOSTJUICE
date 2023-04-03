@@ -307,6 +307,31 @@ public class MASTERSCRIPT : MonoBehaviour
             DialogManager.Show(dialogTexts);
  
         }
+        else if (keyWord == "Door")
+        {
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("It's locked...", "Medium"));
+            DialogManager.Show(dialogTexts);
+
+        }
+        else if (keyWord == "Picture")
+        {
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("I am a  picture.", "Medium"));
+            DialogManager.Show(dialogTexts);
+        }
+        else if (keyWord == "Teacup")
+        {
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("I am a tea cup.", "Medium"));
+            DialogManager.Show(dialogTexts);
+        }
+        else if (keyWord == "Attic Door")
+        {
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("I am an attic door.", "Medium"));
+            DialogManager.Show(dialogTexts);
+        }
     }
 
     #endregion

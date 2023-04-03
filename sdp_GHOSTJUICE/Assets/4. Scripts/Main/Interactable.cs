@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     public GameObject itemDisplayBox; // connect to itemDisplay in Dialog Asset
     Image targetImage;
     RectTransform sourceRectT;
-    public DialogManager DialogManager;
+    //public DialogManager DialogManager;
 
     //public inGameDialogManager IG_DialogManager;
 
@@ -97,7 +97,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
         }
         else if (key == "Books")
         {
-            Invoke("displayItem_2", 3);
+            Invoke("displayItem_2", 2);
         }
 
     }

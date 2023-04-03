@@ -51,9 +51,13 @@ public class GameManager : MonoBehaviour
             case GameState.SecondPuzzleComplete:
                 Debug.Log("GAME STATE HAS BEEN CHANGED");
                 hallwayForwardNav.SetActive(true);
+                //GameObject door = GameObject.Find("Interactable - Door");
+                //door.SetActive(false);
                 break;
             case GameState.ThirdPuzzleComplete:
                 bedroomUpNav.SetActive(true);
+                GameObject atticDoor = GameObject.Find("Interactable - Attic Door");
+                atticDoor.SetActive(false);
                 break;
             case GameState.EndGameSeq:
                 // ????????

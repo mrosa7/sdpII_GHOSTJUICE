@@ -40,6 +40,7 @@ public class Puzzle2 : MonoBehaviour
         isMovingHour = false; // set bools. Nothing should be moving
         isMovingMinute = false;
         isMoving = false;
+
        
     }
     /*private void Update()

@@ -60,7 +60,7 @@ public class Puzzle3_matchStick : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && selectedObject != null && selectedObject.name == "Match_stick(MANAGER)")
+        if (Input.GetMouseButtonUp(0) && selectedObject != null && selectedObject.name == "Match_stick (MANAGER)")
         {
 
             selectedObject = null;
@@ -108,7 +108,7 @@ public class Puzzle3_matchStick : MonoBehaviour
                 TMP_Text text = objective.GetComponent<TMPro.TextMeshProUGUI>();
                 text.SetText("Explore the Wagner House");
                 canClick = false;
-                // play sound effect
+                 //play sound effect
             }
             else
             {
