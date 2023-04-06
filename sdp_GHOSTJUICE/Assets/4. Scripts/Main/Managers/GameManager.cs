@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject); // prevents it from being lost during scene change
+        //DontDestroyOnLoad(this.gameObject); // prevents it from being lost during scene change
         UpdateGameState(GameState.StartGame); // init game state on startscreen
     }
     

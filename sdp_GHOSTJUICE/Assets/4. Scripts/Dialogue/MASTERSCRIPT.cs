@@ -73,8 +73,8 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("Fine, I値l let you take a look around, but first, I'd like you to do something for me.", "Ida"));
         dialogTexts.Add(new DialogData(" Be a dear and light the fireplace, will ya?", "Ida"));
         dialogTexts.Add(new DialogData("You値l need matches and some tinder to get the fire going- they池e all hiding around here somewhere", "Ida"));
-        dialogTexts.Add(new DialogData("Now get on with it, and no funny business, alright?", "Ida"));
-        dialogTexts.Add(new DialogData("Remember, I知 watching you.", "Ida"));*/
+        dialogTexts.Add(new DialogData("Now get on with it, and no funny business, alright?", "Ida"));*/
+        dialogTexts.Add(new DialogData("/emote:Anger/Remember, I知 watching you.", "Ida"));
         DialogManager.Show(dialogTexts);
         //GhostState = "inital";
     }
