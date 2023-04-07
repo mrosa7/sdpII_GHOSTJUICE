@@ -8,10 +8,11 @@ using UnityEngine.UI;
 public class PuzzleObjects : MonoBehaviour, IPointerClickHandler
 {
     SpriteRenderer spriteRenderer;
+    public GameObject[] itemsToHide;
     public GameObject PuzzleToShow;
-    public GameObject UIToHide;
+   /* public GameObject UIToHide;
     public GameObject TriggerToHide;
-    public GameObject ObjectToHide;
+    public GameObject ObjectToHide;*/
     
     //public string keyWord;
     //public GameObject itemDisplayBox; // connect to itemDisplay in Dialog Asset
@@ -27,9 +28,13 @@ public class PuzzleObjects : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         PuzzleToShow.SetActive(true);
-        UIToHide.SetActive(false);
-        TriggerToHide.SetActive(false);
-        ObjectToHide.SetActive(false);
+        foreach (GameObject item in itemsToHide)
+        {
+            if (item.activeSelf == true)
+            {
+                item.SetActive(false);
+            }
+        }
         GameManager.Instance.canClickObj = false;
     }
 
