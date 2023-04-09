@@ -98,16 +98,15 @@ public class Puzzle3_matchStick : MonoBehaviour
         {
             if (timer <= 0.3f)
             {
-                Debug.Log("PASS");
-                GameManager.Instance.UpdateGameState(GameState.FirstPuzzleComplete);
-                MASTERSCRIPT.Instance.postPuzzleDialogue_3();
-                trigger.SetActive(false);
                 litFireAsset.SetActive(true);
-                isSolved = true;
-                objective2.SetActive(false);
-                TMP_Text text = objective.GetComponent<TMPro.TextMeshProUGUI>();
-                text.SetText("Explore the Wagner House");
-                canClick = false;
+                                
+                if(isSolved == false) // FIXES PUZZLE CONVO DUPE
+                {
+                    canClick = false;
+                    isSolved = true;
+                    endPuzzleFunc();
+                }
+                
                  //play sound effect
             }
             else
@@ -147,7 +146,19 @@ public class Puzzle3_matchStick : MonoBehaviour
         }
         else
         {
+
             litFireAsset.SetActive(true);
+           
         }
+    }
+
+    void endPuzzleFunc()
+    {
+        trigger.SetActive(false);
+        GameManager.Instance.UpdateGameState(GameState.FirstPuzzleComplete);
+        MASTERSCRIPT.Instance.postPuzzleDialogue_3();
+        objective2.SetActive(false);
+        TMP_Text text = objective.GetComponent<TMPro.TextMeshProUGUI>();
+        text.SetText("Explore the Wagner House");
     }
 }
