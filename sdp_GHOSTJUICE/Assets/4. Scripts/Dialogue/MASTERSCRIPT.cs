@@ -186,6 +186,23 @@ public class MASTERSCRIPT : MonoBehaviour
 
     // Clock Puzzle DIalogue
     #region
+    public void prePuzzle2()
+    {
+         if (puzzle2_intro)
+        {
+
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("(Wasn’t there a piece of paper with a time written on it downstairs? Maybe I should keep that in mind.)", "Medium"));
+            dialogTexts.Add(new DialogData("(It looks like I can move the hands on this.)", "Medium"));
+            dialogTexts.Add(new DialogData("How do I keep track of the numbers again?... Hm, this is why I prefer digital.", "Medium"));
+            dialogTexts.Add(new DialogData("You mean to tell me there’s clocks other than this kind?", "Ida"));
+            dialogTexts.Add(new DialogData("There’s a lot you have to learn about the present day- but if I stood here filling you in on all that’s happened, we’d be here forever.", "Medium"));
+
+            DialogManager.Show(dialogTexts);
+            puzzle2_intro = false;
+        }
+    }
+    
     public void postPuzzleDialogue_2()
     {
         var dialogTexts = new List<DialogData>();
@@ -200,6 +217,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("/color:#B45ACF/[Room Unlocked: Master Bedroom]", "SYSTEM"));
 
         DialogManager.Show(dialogTexts);
+        
     }
 
     public void postPuzzleDialogue_3()
@@ -349,17 +367,7 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("...", "Medium"));
             DialogManager.Show(dialogTexts);
         }
-        else if (keyWord == "Clock")
-        {
-            var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("(Wasn’t there a piece of paper with a time written on it downstairs? Maybe I should keep that in mind.)", "Medium"));
-            dialogTexts.Add(new DialogData("(It looks like I can move the hands on this.)", "Medium"));
-            dialogTexts.Add(new DialogData("How do I keep track of the numbers again?... Hm, this is why I prefer digital.", "Medium"));
-            dialogTexts.Add(new DialogData("You mean to tell me there’s clocks other than this kind?", "Ida"));
-            dialogTexts.Add(new DialogData("There’s a lot you have to learn about the present day- but if I stood here filling you in on all that’s happened, we’d be here forever.", "Medium"));
-
-            DialogManager.Show(dialogTexts);
-        }
+       
         else if (keyWord == "Teacup")
         {
             var dialogTexts = new List<DialogData>();
@@ -439,7 +447,7 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("Why the hell would it be locked?", "Ida"));
             dialogTexts.Add(new DialogData("Hpmh, it’s nothing. I think I had a spare key lying here somewhere.", "Ida"));
             dialogTexts.Add(new DialogData("If you look around, you’ll find it soon enough.", "Ida"));
-
+            upstairsIntro = false;
             DialogManager.Show(dialogTexts);
         }
     }
@@ -456,6 +464,7 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("L-let’s at least get all our facts straight first. There’s probably a lot in this room to uncover.", "Ida"));
             dialogTexts.Add(new DialogData("Very well. I’ll get to searching.", "Medium"));
             DialogManager.Show(dialogTexts);
+            bedroomIntro = false;
         }
     }
 
@@ -474,6 +483,7 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("But if I can say something, just know that you won’t face this alone. I’m here.", "Medium"));
             dialogTexts.Add(new DialogData("...Thanks", "Ida"));
             DialogManager.Show(dialogTexts);
+            atticIntro = false;
         }
     }
     #endregion

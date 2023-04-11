@@ -41,6 +41,8 @@ public class Puzzle2 : MonoBehaviour
         isMovingMinute = false;
         isMoving = false;
 
+        MASTERSCRIPT.Instance.prePuzzle2();
+
        
     }
     /*private void Update()

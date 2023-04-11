@@ -21,7 +21,7 @@ public class Puzzle1 : MonoBehaviour
     void Start()
     {
         _camera = Camera.main;
-
+        MASTERSCRIPT.Instance.puzzle1_introduction();
         allowUserInput = true;
         // creates the solution before it shuffles. idk why i need to do it like this unity is killing me
         foreach( var x in Tiles)
