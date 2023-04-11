@@ -391,7 +391,7 @@ public class MASTERSCRIPT : MonoBehaviour
             DialogManager.Show(dialogTexts);
         }
 
-        else if(keyWord == "PaperScrap")
+        else if(keyWord == "Paper Scrap")
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("(What’s this sticking out from under the bed?)", "Medium"));
