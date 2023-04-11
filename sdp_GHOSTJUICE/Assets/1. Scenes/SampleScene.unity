@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Match_stick (MANAGER)
       objectReference: {fileID: 0}
+    - target: {fileID: 456807724104757084, guid: b0f96858fd92fcf40ab42cf696bd2b59, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea73d6dc4a90941da935ca501bed0f0d, type: 3}
     - target: {fileID: 456807724190751160, guid: b0f96858fd92fcf40ab42cf696bd2b59, type: 3}
       propertyPath: m_RootOrder
       value: 4

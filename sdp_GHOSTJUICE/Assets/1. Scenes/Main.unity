@@ -827,6 +827,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7713775019345010972, guid: 09ec7cc84b2d4fa4e8e97e66d23f522b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec0263768528d49809bf36289f24dd9a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09ec7cc84b2d4fa4e8e97e66d23f522b, type: 3}
 --- !u!4 &55717143 stripped
@@ -1625,15 +1629,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4094011683009168357, guid: d536fa71dd00cf349a228e41212ace48, type: 3}
       propertyPath: m_Color.b
-      value: 0.73333335
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4094011683009168357, guid: d536fa71dd00cf349a228e41212ace48, type: 3}
       propertyPath: m_Color.g
-      value: 0.47450984
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4094011683009168357, guid: d536fa71dd00cf349a228e41212ace48, type: 3}
       propertyPath: m_Color.r
-      value: 0.22352943
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4094011683009168357, guid: d536fa71dd00cf349a228e41212ace48, type: 3}
       propertyPath: m_FontData.m_Font
@@ -1984,8 +1988,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b76d91988ab8a4bb0b63ace9e681162e, type: 2}
+  m_sharedMaterial: {fileID: 4882221024343734170, guid: b76d91988ab8a4bb0b63ace9e681162e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2861,8 +2865,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b76d91988ab8a4bb0b63ace9e681162e, type: 2}
+  m_sharedMaterial: {fileID: 4882221024343734170, guid: b76d91988ab8a4bb0b63ace9e681162e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4260,6 +4264,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4422252859203923677, guid: c6abaca0fdcf37f49abdcf924857f257, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec0263768528d49809bf36289f24dd9a, type: 3}
     - target: {fileID: 4422252859203923678, guid: c6abaca0fdcf37f49abdcf924857f257, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 5
@@ -5916,8 +5924,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Objective:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b76d91988ab8a4bb0b63ace9e681162e, type: 2}
+  m_sharedMaterial: {fileID: 4882221024343734170, guid: b76d91988ab8a4bb0b63ace9e681162e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8484,6 +8492,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 456807724104757084, guid: b0f96858fd92fcf40ab42cf696bd2b59, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec0263768528d49809bf36289f24dd9a, type: 3}
     - target: {fileID: 456807724190751160, guid: b0f96858fd92fcf40ab42cf696bd2b59, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -9895,8 +9907,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Light the fireplace
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b76d91988ab8a4bb0b63ace9e681162e, type: 2}
+  m_sharedMaterial: {fileID: 4882221024343734170, guid: b76d91988ab8a4bb0b63ace9e681162e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
