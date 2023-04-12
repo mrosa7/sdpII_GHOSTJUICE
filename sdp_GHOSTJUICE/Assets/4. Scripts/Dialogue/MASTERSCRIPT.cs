@@ -26,21 +26,29 @@ public class MASTERSCRIPT : MonoBehaviour
         //Plays this dialogue when the Player first enters the house.
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("Well, time to get down to business.", "Medium"));
-        /*dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
+        dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
+        dialogTexts.Add(new DialogData("...", "Medium"));
         dialogTexts.Add(new DialogData("...Ida, I have reason to believe that you’re here with me right now.", "Medium"));
         // trigger sound effect
         dialogTexts.Add(new DialogData(" If you are, please give me a sign.", "Medium"));
         // trigger music
+        dialogTexts.Add(new DialogData("....", "Medium"));
+        dialogTexts.Add(new DialogData("!!!", "Medium")); // <Knock, footsteps, ghost noise?>
         dialogTexts.Add(new DialogData("(Good, we’re getting somewhere.)", "Medium"));
         dialogTexts.Add(new DialogData("Alright, Miss Wagner, thank you for your cooperation. Now, if I can, I would like to ask a couple of questions. ", "Medium"));
         dialogTexts.Add(new DialogData("I’m working with the police, my name is Inspector--", "Medium"));
-        //trigger sound effect
-        dialogTexts.Add(new DialogData("Hey now, no need to get all freaked out, I just wanted to- ", "Medium"));
+        dialogTexts.Add(new DialogData("!!!??", "Medium")); // < angry ghost noise / agressive>
+         //trigger sound effect
+         dialogTexts.Add(new DialogData("Hey now, no need to get all freaked out, I just wanted to- ", "Medium"));
         //another sound effect
+        dialogTexts.Add(new DialogData("(CRASH)", "Ida")); // <Ida throws something>
         dialogTexts.Add(new DialogData("Okay, look- you know this isn’t scaring me, right?", "Medium"));
         dialogTexts.Add(new DialogData("I know that you’re here, and you know I’M here, and I’m not leaving until I get some answers- ", "Medium"));
         dialogTexts.Add(new DialogData("Now show yourself right now!", "Medium"));
         // pause things, add thunderclap, IDA appears. 
+        dialogTexts.Add(new DialogData("...", "Medium"));
+        dialogTexts.Add(new DialogData("......", "Medium")); // <thunderclap>
+        dialogTexts.Add(new DialogData("...", "Ida")); 
         dialogTexts.Add(new DialogData("So, you’re one of them coppers, huh?", "Ida"));
         dialogTexts.Add(new DialogData("Who sent you?! Where’s your warrant?! I bet one of those punks who broke in ratted me out to you, didn’t they?!", "Ida"));
         dialogTexts.Add(new DialogData("First they try and swipe some of my booze and then they snitch on me when they can’t get it, honestly I OUGHTA-", "Ida"));
@@ -77,7 +85,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("Fine, I’ll let you take a look around, but first, I'd like you to do something for me.", "Ida"));
         dialogTexts.Add(new DialogData(" Be a dear and light the fireplace, will ya?", "Ida"));
         dialogTexts.Add(new DialogData("You’ll need matches and some tinder to get the fire going- they’re all hiding around here somewhere", "Ida"));
-        dialogTexts.Add(new DialogData("Now get on with it, and no funny business, alright?", "Ida"));*/
+        dialogTexts.Add(new DialogData("Now get on with it, and no funny business, alright?", "Ida"));
         dialogTexts.Add(new DialogData("/emote:Anger/Remember, I’m watching you.", "Ida"));
         DialogManager.Show(dialogTexts);
         //GhostState = "inital";
@@ -209,7 +217,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("... That says 11:45 right?", "Medium"));
         dialogTexts.Add(new DialogData("...", "Ida"));
         dialogTexts.Add(new DialogData("Yes", "Ida"));
-        dialogTexts.Add(new DialogData("(Oh, the clock popped open! There’s something jammed inside, too)", "Medium"));
+        dialogTexts.Add(new DialogData("(Oh, the clock popped open! There’s something jammed inside, too)", "Medium")); // <Key/metal sound effect>
         dialogTexts.Add(new DialogData("/color:#540647//size:40/[Found: Spare Key]", "SYSTEM"));
         dialogTexts.Add(new DialogData("Oh, so THAT’S where I left it!", "Ida"));
         dialogTexts.Add(new DialogData(" I don’t remember why or how it ended up there, but it looks like we can finally get into my room.", "Ida"));
@@ -223,7 +231,7 @@ public class MASTERSCRIPT : MonoBehaviour
     public void postPuzzleDialogue_3()
     {
         var dialogTexts = new List<DialogData>();
-        dialogTexts.Add(new DialogData("Well I’ll be, you did it.", "Ida"));
+        dialogTexts.Add(new DialogData("Well I’ll be, you did it.", "Ida")); // <Fire roars to life>
         dialogTexts.Add(new DialogData("And I got quite a bit of new evidence- thanks to your cooperation, of course.", "Medium"));
         dialogTexts.Add(new DialogData(" Now that I think about it... I think I remember a little bit more about the night of the party.", "Ida"));
         dialogTexts.Add(new DialogData("Hm?", "Medium"));
@@ -312,7 +320,7 @@ public class MASTERSCRIPT : MonoBehaviour
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("(Hey, there seems to be something in here.)", "Medium"));
-            dialogTexts.Add(new DialogData("/color:#B45ACF//size:40/[Found: Box of Matches].", "SYSTEM"));
+            dialogTexts.Add(new DialogData("/color:#540647//size:40/[Found: Box of Matches].", "SYSTEM"));
             DialogManager.Show(dialogTexts);
         }
         else if (keyWord == "puzzle1_nogo")
@@ -359,7 +367,8 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("He and Pearl got hitched about a year before this all went down, and I felt he was just all kinds of wrong.", "Ida"));
             dialogTexts.Add(new DialogData("I could tell he was in with some powerful but dangerous folks- and yet Pearl was crazy for him.", "Ida"));
             dialogTexts.Add(new DialogData("I dropped a few hints to her that she should be a bit more careful, but as far as she was concerned, Raymond was the one. ", "Ida"));
-            dialogTexts.Add(new DialogData("They seemed alright enough when they were together, though, and I didn’t want to make things worse by sticking my nose where it didn’t belong, so I just put up with the whole thing as much as I could.", "Ida"));
+            dialogTexts.Add(new DialogData("They seemed alright enough when they were together, though.", "Ida"));
+            dialogTexts.Add(new DialogData("And I didn’t want to make things worse by sticking my nose where it didn’t belong, so I just put up with the whole thing as much as I could. ", "Ida"));
             dialogTexts.Add(new DialogData("I see.", "Medium"));
             dialogTexts.Add(new DialogData("Aside from all that though, Pearl really was the best sister a girl could ask for.", "Ida"));
             dialogTexts.Add(new DialogData("She helped me “out of my shell” while we were growing up, she encouraged me to pursue my music career when I had my doubts- she even helped me with planning this party…. ", "Ida"));
@@ -387,15 +396,15 @@ public class MASTERSCRIPT : MonoBehaviour
         else if (keyWord == "Attic Door")
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("It's locked...", "Medium"));
+            dialogTexts.Add(new DialogData("It's locked...", "Medium")); // <Door knob jiggle>
             DialogManager.Show(dialogTexts);
         }
 
         else if(keyWord == "Paper Scrap")
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("(What’s this sticking out from under the bed?)", "Medium"));
-            dialogTexts.Add(new DialogData("/color:#B45ACF//size:40/[Found: Note]", "SYSTEM"));
+            dialogTexts.Add(new DialogData("(What’s this sticking out from under the dresser?)", "Medium"));
+            dialogTexts.Add(new DialogData("/color:#540647//size:40/[Found: Note]", "SYSTEM"));
             dialogTexts.Add(new DialogData(" Let’s see what this says… oh. This is… interesting.", "Medium"));
             dialogTexts.Add(new DialogData("Huh? Let me see!.", "Ida"));
             dialogTexts.Add(new DialogData("...", "Ida"));
@@ -415,8 +424,10 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("...", "Medium"));
             dialogTexts.Add(new DialogData("I-... I can’t explain it but…I want to be mad. I want to be mad at the life I never got to live, all the possibilities I never knew, all the memories I could’ve made but… I can’t. ", "Ida"));
             dialogTexts.Add(new DialogData("...How do you feel?", "Medium"));
-            dialogTexts.Add(new DialogData("...Tired. I’m just tired. I’ve spent the past 70 or so years just stewing in my anger but now that I have a reason for it, I’ve already burnt out. But come to think of it... there’s not much else I can do, can I? What should I do?", "Ida"));
-            dialogTexts.Add(new DialogData("Well, I would say that, if you’re tired, you should rest. Seems simple enough. There’s nothing else keeping you here. It might seem daunting to accept, but it can’t be worse than what you’ve already been through. ", "Medium"));
+            dialogTexts.Add(new DialogData("...Tired. I’m just tired. I’ve spent the past 70 or so years just stewing in my anger but now that I have a reason for it, I’ve already burnt out.", "Ida"));
+            dialogTexts.Add(new DialogData("But come to think of it... there’s not much else I can do, can I? What should I do??", "Ida"));
+            dialogTexts.Add(new DialogData("Well, I would say that, if you’re tired, you should rest. Seems simple enough. There’s nothing else keeping you here. ", "Medium"));
+            dialogTexts.Add(new DialogData("It might seem daunting to accept, but it can’t be worse than what you’ve already been through.", "Medium"));
             dialogTexts.Add(new DialogData("In the end, of course, it’s your decision.", "Medium"));
             dialogTexts.Add(new DialogData("...It’s a shame, ya know. You’ve been the first person I’ve talked to in ages… I wish I could’ve gotten to know you better.", "Ida"));
             dialogTexts.Add(new DialogData("Even then…you’re right. It's curtains for me.", "Ida"));
@@ -458,7 +469,8 @@ public class MASTERSCRIPT : MonoBehaviour
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("Alright, we’re finally here- any new memories coming back to you, Miss Wagner?", "Medium"));
-            dialogTexts.Add(new DialogData(" Hmm... Well, Pearl propped me up in bed after she brought me in here, then left to go check on things downstairs. I don’t know how long I was just lying here, but it was definitely a while.", "Ida"));
+            dialogTexts.Add(new DialogData(" Hmm... Well, Pearl propped me up in bed after she brought me in here, then left to go check on things downstairs.", "Ida"));
+            dialogTexts.Add(new DialogData("I don’t know how long I was just lying here, but it was definitely a while.", "Ida"));
             dialogTexts.Add(new DialogData("Then she came back, carrying a cup of my favorite tea. I was just awake enough to take a few sips but that’s where things went dark.", "Ida"));
             dialogTexts.Add(new DialogData("If it’s what I think it is...", "Medium"));
             dialogTexts.Add(new DialogData("L-let’s at least get all our facts straight first. There’s probably a lot in this room to uncover.", "Ida"));

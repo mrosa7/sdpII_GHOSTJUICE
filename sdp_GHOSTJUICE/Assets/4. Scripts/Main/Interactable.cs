@@ -100,5 +100,14 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
             Invoke("displayItem_2", 2);
         }
 
+       /* else if (key == "Attic Chest")
+        {
+
+        }*/
+        
+        else if(key == "Paper Scrap")
+        {
+            Invoke("displayItem_2", 2);
+        }
     }
 }
