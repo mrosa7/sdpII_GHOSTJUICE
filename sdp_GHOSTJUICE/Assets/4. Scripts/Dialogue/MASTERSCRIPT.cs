@@ -94,7 +94,7 @@ public class MASTERSCRIPT : MonoBehaviour
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("...", "Ida"));
             //dialogTexts.Add(new DialogData("What do you want.", "Ida"));
-            //dialogTexts.Add(new DialogData("/color:red/Get out of my house.", "Ida"));
+            //dialogTexts.Add(new DialogData("/color:#540647/Get out of my house.", "Ida"));
 
             DialogManager.Show(dialogTexts);
         }
@@ -131,7 +131,7 @@ public class MASTERSCRIPT : MonoBehaviour
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("Who are you.", "Ida"));
         dialogTexts.Add(new DialogData("What do you want.", "Ida"));
-        dialogTexts.Add(new DialogData("/color:red/Get out of my house.", "Ida"));
+        dialogTexts.Add(new DialogData("/color:#540647/Get out of my house.", "Ida"));
 
         DialogManager.Show(dialogTexts);
     }
@@ -168,7 +168,7 @@ public class MASTERSCRIPT : MonoBehaviour
     {
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("Ah, that must be what it’s supposed to look like. Wait… something fell out from behind one of the tiles.", "Medium"));
-        dialogTexts.Add(new DialogData("/color:#B45ACF/[Found: Strange Key]", "SYSTEM"));
+        dialogTexts.Add(new DialogData("/color:#540647//size:40/[Found: Strange Key]", "SYSTEM"));
         dialogTexts.Add(new DialogData("Another key? I can’t imagine what this would be for.", "Medium"));
         dialogTexts.Add(new DialogData("!", "Ida"));
         dialogTexts.Add(new DialogData("Huh? You recognize this, Miss Wagner?", "Medium"));
@@ -210,11 +210,11 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("...", "Ida"));
         dialogTexts.Add(new DialogData("Yes", "Ida"));
         dialogTexts.Add(new DialogData("(Oh, the clock popped open! There’s something jammed inside, too)", "Medium"));
-        dialogTexts.Add(new DialogData("/color:#B45ACF/[Found: Spare Key]", "SYSTEM"));
+        dialogTexts.Add(new DialogData("/color:#540647//size:40/[Found: Spare Key]", "SYSTEM"));
         dialogTexts.Add(new DialogData("Oh, so THAT’S where I left it!", "Ida"));
         dialogTexts.Add(new DialogData(" I don’t remember why or how it ended up there, but it looks like we can finally get into my room.", "Ida"));
         dialogTexts.Add(new DialogData("(We’re in the home stretch-I’m sure that the answers we need are behind that door. Alright, let’s do this.)", "Medium"));
-        dialogTexts.Add(new DialogData("/color:#B45ACF/[Room Unlocked: Master Bedroom]", "SYSTEM"));
+        dialogTexts.Add(new DialogData("/color:#540647//size:40/[Room Unlocked: Master Bedroom]", "SYSTEM"));
 
         DialogManager.Show(dialogTexts);
         
@@ -232,7 +232,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("At first I was sorta just stumbling around but after a while I was helped up the stairs-you know, to take a break and get it together.", "Ida"));
         dialogTexts.Add(new DialogData("What next?", "Medium"));
         dialogTexts.Add(new DialogData("... I think we need to go upstairs. You seem to be on the up and up, so I think I can trust you to continue.", "Ida"));
-        dialogTexts.Add(new DialogData("/color:#B45ACF/[Second Level Unlocked: Upstairs Hallway]", "SYSTEM"));
+        dialogTexts.Add(new DialogData("/color:#540647//size:40/[Second Level Unlocked: Upstairs Hallway]", "SYSTEM"));
 
         DialogManager.Show(dialogTexts);
     }
@@ -270,7 +270,7 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("Hm. I’ll keep that in mind.", "Medium"));
             //dialogTexts.Add(new DialogData("(Hey, there seems to be something stuck underneath one of the bottles.)", "Medium"));
             //dialogTexts.Add(new DialogData("(Hm. It’s a paper party invitation. Maybe I can use this for the fire.)", "Medium"));
-            //dialogTexts.Add(new DialogData("/color:#B45ACF/[Found: Party Invite]", "SYSTEM"));
+            //dialogTexts.Add(new DialogData("/color:#540647/[Found: Party Invite]", "SYSTEM"));
             /* dialogTexts.Add(new DialogData("Hey Miss Wagner, you wouldn’t mind if I used this to get the fire going, would you?", "Medium"));
              dialogTexts.Add(new DialogData("It’s not like anyone else needs them right now. ", "Medium"));*/
             //dialogTexts.Add(new DialogData("...I suppose. You’re gonna need more than just one, though.", "Ida"));
@@ -290,7 +290,7 @@ public class MASTERSCRIPT : MonoBehaviour
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("This place is really falling apart...", "Medium"));
             dialogTexts.Add(new DialogData("But maybe I can burn this.", "Medium"));
-            dialogTexts.Add(new DialogData("/color:#B45ACF/[Found: Kindle]", "SYSTEM"));
+            dialogTexts.Add(new DialogData("/color:#540647//size:40/[Found: Kindle]", "SYSTEM"));
             DialogManager.Show(dialogTexts);
         }
         else if (keyWord == "Gramophone")
@@ -312,7 +312,7 @@ public class MASTERSCRIPT : MonoBehaviour
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("(Hey, there seems to be something in here.)", "Medium"));
-            dialogTexts.Add(new DialogData("/color:#B45ACF/[Found: Box of Matches].", "SYSTEM"));
+            dialogTexts.Add(new DialogData("/color:#B45ACF//size:40/[Found: Box of Matches].", "SYSTEM"));
             DialogManager.Show(dialogTexts);
         }
         else if (keyWord == "puzzle1_nogo")
@@ -395,7 +395,7 @@ public class MASTERSCRIPT : MonoBehaviour
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("(What’s this sticking out from under the bed?)", "Medium"));
-            dialogTexts.Add(new DialogData("/color:#B45ACF/[Found: Note]", "SYSTEM"));
+            dialogTexts.Add(new DialogData("/color:#B45ACF//size:40/[Found: Note]", "SYSTEM"));
             dialogTexts.Add(new DialogData(" Let’s see what this says… oh. This is… interesting.", "Medium"));
             dialogTexts.Add(new DialogData("Huh? Let me see!.", "Ida"));
             dialogTexts.Add(new DialogData("...", "Ida"));

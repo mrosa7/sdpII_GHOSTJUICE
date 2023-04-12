@@ -17,6 +17,7 @@ public class Puzzle1 : MonoBehaviour
     public GameObject trigger;
     public bool isSolved;
     public GameObject swapObj;
+    public GameObject targetToHide;
     // Start is called before the first frame update
     void Start()
     {
@@ -140,4 +141,17 @@ public class Puzzle1 : MonoBehaviour
             swapObj.SetActive(true);
         }
     }
+
+    public void changeEnviron()
+    {
+        if (isSolved)
+        {
+            targetToHide.SetActive(false);
+        }
+        else
+        {
+            targetToHide.SetActive(true);
+        }
+    }
+
 }

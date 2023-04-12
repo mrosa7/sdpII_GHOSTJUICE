@@ -14,6 +14,8 @@ public class Puzzle2 : MonoBehaviour
     public GameObject hourArea;
     public GameObject minuteArea;
 
+    public GameObject targetToHide;
+
     Collider2D hourHand_Col;
     Collider2D minuteHand_Col;
 
@@ -30,6 +32,7 @@ public class Puzzle2 : MonoBehaviour
 
     bool hourIsSolved = false;
     bool minuteIsSolved = false;
+    bool isSolved = false;
 
     // Start is called before the first frame update
     void Start()
@@ -75,9 +78,21 @@ public class Puzzle2 : MonoBehaviour
         Debug.Log("Running Solved Protocol");
         GameManager.Instance.UpdateGameState(GameState.SecondPuzzleComplete);
         MASTERSCRIPT.Instance.postPuzzleDialogue_2();
+        isSolved = true;
         enabled = false;
     }
 
+    public void changeEnviron()
+    {
+        if (isSolved)
+        {
+            targetToHide.SetActive(false);
+        }
+        else
+        {
+            targetToHide.SetActive(true);
+        }
+    }
     
     // Update is called once per frame
     void Update()
