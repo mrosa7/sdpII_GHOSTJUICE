@@ -5,6 +5,8 @@ using TMPro;
 
 public class Puzzle3_matchStick : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip audioClip;
     Vector3 startPos;
     public float speed;
     public GameObject lBound;
@@ -120,7 +122,8 @@ public class Puzzle3_matchStick : MonoBehaviour
                     
                 }*/
             }
-            
+            audioSource.PlayOneShot(audioClip, 0.7f);
+
         }
     }
 

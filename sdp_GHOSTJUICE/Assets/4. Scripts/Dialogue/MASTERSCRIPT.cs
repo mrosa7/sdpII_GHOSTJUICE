@@ -28,7 +28,7 @@ public class MASTERSCRIPT : MonoBehaviour
         //Plays this dialogue when the Player first enters the house.
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("Well, time to get down to business.", "Medium"));
-        dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
+       /* dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
         dialogTexts.Add(new DialogData("...", "Medium"));
         dialogTexts.Add(new DialogData("...Ida, I have reason to believe that you’re here with me right now.", "Medium"));
         dialogTexts.Add(new DialogData(" If you are, please give me a sign.", "Medium"));
@@ -86,7 +86,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData(" Be a dear and light the fireplace, will ya?", "Ida"));
         dialogTexts.Add(new DialogData("You’ll need matches and some tinder to get the fire going- they’re all hiding around here somewhere", "Ida"));
         dialogTexts.Add(new DialogData("Now get on with it, and no funny business, alright?", "Ida"));
-        dialogTexts.Add(new DialogData("/emote:Anger/Remember, I’m watching you.", "Ida"));
+        dialogTexts.Add(new DialogData("/emote:Anger/Remember, I’m watching you.", "Ida"));*/
         DialogManager.Show(dialogTexts);
         //GhostState = "inital";
     }
@@ -231,7 +231,7 @@ public class MASTERSCRIPT : MonoBehaviour
     public void postPuzzleDialogue_3()
     {
         var dialogTexts = new List<DialogData>();
-        dialogTexts.Add(new DialogData("/sound:Fireplace/Well I’ll be, you did it.", "Ida")); // <Fire roars to life>
+        dialogTexts.Add(new DialogData("Well I’ll be, you did it.", "Ida")); // <Fire roars to life>
         dialogTexts.Add(new DialogData("And I got quite a bit of new evidence- thanks to your cooperation, of course.", "Medium"));
         dialogTexts.Add(new DialogData(" Now that I think about it... I think I remember a little bit more about the night of the party.", "Ida"));
         dialogTexts.Add(new DialogData("Hm?", "Medium"));
@@ -403,8 +403,8 @@ public class MASTERSCRIPT : MonoBehaviour
         else if(keyWord == "Paper Scrap")
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("(What’s this sticking out from under the dresser?)", "Medium"));
-            dialogTexts.Add(new DialogData("/sound:Paper//color:#540647//size:40/[Found: Note]", "SYSTEM"));
+            dialogTexts.Add(new DialogData("/sound:Paper/(What’s this sticking out from under the dresser?)", "Medium"));
+            dialogTexts.Add(new DialogData("/color:#540647//size:40/[Found: Note]", "SYSTEM"));
             dialogTexts.Add(new DialogData(" Let’s see what this says… oh. This is… interesting.", "Medium"));
             dialogTexts.Add(new DialogData("Huh? Let me see!.", "Ida"));
             dialogTexts.Add(new DialogData("...", "Ida"));
