@@ -46,6 +46,7 @@ namespace Doublsb.Dialog
         public GameObject clickOverlay;
         public GameObject[] Ghosts;
         public GameObject navSystem;
+        public bool GameOver = false;
 
         [Header("UI Objects")]
         public Text Printer_Text;
@@ -63,7 +64,7 @@ namespace Doublsb.Dialog
         public GameObject Selector;
         public GameObject SelectorItem;
         public Text SelectorItemText;
-
+        
         
         [HideInInspector]
         public State state;
@@ -97,6 +98,7 @@ namespace Doublsb.Dialog
                 _emote("Normal");
             
             _textingRoutine = StartCoroutine(Activate());
+
         }
 
         // Starts coroutine but this is specifically for lists of dialogue (which we mostly have.)
@@ -151,7 +153,14 @@ namespace Doublsb.Dialog
                 _current_Data.Callback.Invoke();
                 
                 _current_Data.Callback = null;
+                
+
             }
+            else
+            {
+                GameOver = true;
+            }
+            
         }
         #endregion
 
@@ -258,6 +267,7 @@ namespace Doublsb.Dialog
                     Ghost.SetActive(false);
                 }
             }
+            GameOver = false;
             // only shows up if there is a character
             Characters.SetActive(_current_Character != null);
             NameLabel.SetActive(_current_Character != null);

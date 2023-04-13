@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Doublsb.Dialog;
+using UnityEngine.SceneManagement;
 
 // EXPAND REGION TO VIEW CODE
 public class MASTERSCRIPT : MonoBehaviour
@@ -15,6 +16,7 @@ public class MASTERSCRIPT : MonoBehaviour
     bool upstairsIntro = true;
     bool bedroomIntro = true;
     bool atticIntro = true;
+    bool isDone = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,7 +28,7 @@ public class MASTERSCRIPT : MonoBehaviour
         //Plays this dialogue when the Player first enters the house.
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("Well, time to get down to business.", "Medium"));
-        dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
+       /* dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
         dialogTexts.Add(new DialogData("...", "Medium"));
         dialogTexts.Add(new DialogData("...Ida, I have reason to believe that you’re here with me right now.", "Medium"));
         // trigger sound effect
@@ -86,7 +88,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData(" Be a dear and light the fireplace, will ya?", "Ida"));
         dialogTexts.Add(new DialogData("You’ll need matches and some tinder to get the fire going- they’re all hiding around here somewhere", "Ida"));
         dialogTexts.Add(new DialogData("Now get on with it, and no funny business, alright?", "Ida"));
-        dialogTexts.Add(new DialogData("/emote:Anger/Remember, I’m watching you.", "Ida"));
+        dialogTexts.Add(new DialogData("/emote:Anger/Remember, I’m watching you.", "Ida"));*/
         DialogManager.Show(dialogTexts);
         //GhostState = "inital";
     }
@@ -434,6 +436,10 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("I don’t know what’s next, but I’m not afraid to find out.", "Ida"));
             dialogTexts.Add(new DialogData("Thank you, Inspector. You really were the bee's knees, ya know?", "Ida"));
             DialogManager.Show(dialogTexts);
+            isDone = true;
+           
+            
+
         }
     }
 
@@ -495,8 +501,31 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("But if I can say something, just know that you won’t face this alone. I’m here.", "Medium"));
             dialogTexts.Add(new DialogData("...Thanks", "Ida"));
             DialogManager.Show(dialogTexts);
+            
             atticIntro = false;
         }
     }
     #endregion
+
+
+
+    public void triggerEnding()
+    {
+        if (isDone && DialogManager.gameObject && DialogManager.Overlay.activeSelf == false) 
+        {
+            SceneManager.LoadScene(4);
+        }
+
+        
+        
+    }
+    private void Update()
+    {
+        if (isDone && DialogManager.gameObject)
+        {
+            Invoke("triggerEnding", 3);
+        }
+    }
+
+   
 }
