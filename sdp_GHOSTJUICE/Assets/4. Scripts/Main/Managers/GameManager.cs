@@ -59,15 +59,8 @@ public class GameManager : MonoBehaviour
                 GameObject atticDoor = GameObject.Find("Interactable - Attic Door");
                 atticDoor.SetActive(false);
                 break;
-            case GameState.EndGameSeq:
+            case GameState.EndGame:
                 // ????????
-                break;
-            case GameState.ShowEndScreen:
-                //???? Destroy stuff??
-                break;
-            case GameState.RESET:
-                //DESTROY EVERYTHING IN DO NOT DESTROY ON LOAD
-                // re instanciate anything that needs to be
                 break;
 
             default:
@@ -86,8 +79,6 @@ public enum GameState
     FirstPuzzleComplete,
     SecondPuzzleComplete,
     ThirdPuzzleComplete,
-    EndGameSeq,
-    ShowEndScreen,
-    RESET
+    EndGame
 
 }

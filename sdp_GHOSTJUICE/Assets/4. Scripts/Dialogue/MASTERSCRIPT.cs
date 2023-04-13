@@ -16,7 +16,7 @@ public class MASTERSCRIPT : MonoBehaviour
     bool upstairsIntro = true;
     bool bedroomIntro = true;
     bool atticIntro = true;
-    bool isDone = false;
+    public GameObject endGameManager;
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,20 +28,18 @@ public class MASTERSCRIPT : MonoBehaviour
         //Plays this dialogue when the Player first enters the house.
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("Well, time to get down to business.", "Medium"));
-       /* dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
+        dialogTexts.Add(new DialogData("Hello? I’m here to speak to Miss Ida Wagner.", "Medium"));
         dialogTexts.Add(new DialogData("...", "Medium"));
         dialogTexts.Add(new DialogData("...Ida, I have reason to believe that you’re here with me right now.", "Medium"));
-        // trigger sound effect
         dialogTexts.Add(new DialogData(" If you are, please give me a sign.", "Medium"));
-        // trigger music
         dialogTexts.Add(new DialogData("....", "Medium"));
-        dialogTexts.Add(new DialogData("!!!", "Medium")); // <Knock, footsteps, ghost noise?>
+        dialogTexts.Add(new DialogData("/sound:Footsteps/!!!", "Medium")); // <Knock, footsteps, ghost noise?>
         dialogTexts.Add(new DialogData("(Good, we’re getting somewhere.)", "Medium"));
         dialogTexts.Add(new DialogData("Alright, Miss Wagner, thank you for your cooperation. Now, if I can, I would like to ask a couple of questions. ", "Medium"));
         dialogTexts.Add(new DialogData("I’m working with the police, my name is Inspector--", "Medium"));
-        dialogTexts.Add(new DialogData("!!!??", "Medium")); // < angry ghost noise / agressive>
-         //trigger sound effect
-         dialogTexts.Add(new DialogData("Hey now, no need to get all freaked out, I just wanted to- ", "Medium"));
+        dialogTexts.Add(new DialogData("/sound:GhostNoise/!!!??", "Medium")); // < angry ghost noise / agressive>
+                                                            //trigger sound effect
+        dialogTexts.Add(new DialogData("Hey now, no need to get all freaked out, I just wanted to- ", "Medium"));
         //another sound effect
         dialogTexts.Add(new DialogData("(CRASH)", "Ida")); // <Ida throws something>
         dialogTexts.Add(new DialogData("Okay, look- you know this isn’t scaring me, right?", "Medium"));
@@ -49,8 +47,8 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("Now show yourself right now!", "Medium"));
         // pause things, add thunderclap, IDA appears. 
         dialogTexts.Add(new DialogData("...", "Medium"));
-        dialogTexts.Add(new DialogData("......", "Medium")); // <thunderclap>
-        dialogTexts.Add(new DialogData("...", "Ida")); 
+        dialogTexts.Add(new DialogData("/sound:Thunderclap/......", "Medium")); // <thunderclap>
+        dialogTexts.Add(new DialogData("...", "Ida"));
         dialogTexts.Add(new DialogData("So, you’re one of them coppers, huh?", "Ida"));
         dialogTexts.Add(new DialogData("Who sent you?! Where’s your warrant?! I bet one of those punks who broke in ratted me out to you, didn’t they?!", "Ida"));
         dialogTexts.Add(new DialogData("First they try and swipe some of my booze and then they snitch on me when they can’t get it, honestly I OUGHTA-", "Ida"));
@@ -88,7 +86,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData(" Be a dear and light the fireplace, will ya?", "Ida"));
         dialogTexts.Add(new DialogData("You’ll need matches and some tinder to get the fire going- they’re all hiding around here somewhere", "Ida"));
         dialogTexts.Add(new DialogData("Now get on with it, and no funny business, alright?", "Ida"));
-        dialogTexts.Add(new DialogData("/emote:Anger/Remember, I’m watching you.", "Ida"));*/
+        dialogTexts.Add(new DialogData("/emote:Anger/Remember, I’m watching you.", "Ida"));
         DialogManager.Show(dialogTexts);
         //GhostState = "inital";
     }
@@ -113,7 +111,7 @@ public class MASTERSCRIPT : MonoBehaviour
             var dialogTexts2 = new List<DialogData>();
             dialogTexts2.Add(new DialogData("Stop messing around", "Ida"));
             dialogTexts2.Add(new DialogData("But...", "Ida"));
-            dialogTexts2.Add(new DialogData("/size:down//size:down/Why was that picture ruined in the first place...", "Ida"));
+            dialogTexts2.Add(new DialogData("...", "Ida"));
 
             DialogManager.Show(dialogTexts2);
         }
@@ -184,7 +182,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("Huh? You recognize this, Miss Wagner?", "Medium"));
         dialogTexts.Add(new DialogData("Come over here, by the closet.", "Ida"));
         dialogTexts.Add(new DialogData("Huh, there’s nothing in here that seems out of the ordinary. Wait, what’s that hatch up there? ", "Medium"));
-        dialogTexts.Add(new DialogData("(Click) Hey, the key fits in this hole!", "Medium")); // SOUND
+        dialogTexts.Add(new DialogData("/sound:KeyClick/(Click) Hey, the key fits in this hole!", "Medium")); // SOUND
         dialogTexts.Add(new DialogData("(Creak) A set of pull out stairs?.", "Medium")); // SOUND
         dialogTexts.Add(new DialogData("This is the attic. Strange place to put the entrance, I know, but it's been here since it was built. Only the people who live here should know about it.", "Ida"));
         dialogTexts.Add(new DialogData("Well, there’s no way left but up. ", "Medium"));
@@ -216,10 +214,10 @@ public class MASTERSCRIPT : MonoBehaviour
     public void postPuzzleDialogue_2()
     {
         var dialogTexts = new List<DialogData>();
-        dialogTexts.Add(new DialogData("... That says 11:45 right?", "Medium"));
+        dialogTexts.Add(new DialogData("/sound:ClockChime/... That says 11:45 right?", "Medium"));
         dialogTexts.Add(new DialogData("...", "Ida"));
         dialogTexts.Add(new DialogData("Yes", "Ida"));
-        dialogTexts.Add(new DialogData("(Oh, the clock popped open! There’s something jammed inside, too)", "Medium")); // <Key/metal sound effect>
+        dialogTexts.Add(new DialogData("/sound:KeyClick/(Oh, the clock popped open! There’s something jammed inside, too)", "Medium")); // <Key/metal sound effect>
         dialogTexts.Add(new DialogData("/color:#540647//size:40/[Found: Spare Key]", "SYSTEM"));
         dialogTexts.Add(new DialogData("Oh, so THAT’S where I left it!", "Ida"));
         dialogTexts.Add(new DialogData(" I don’t remember why or how it ended up there, but it looks like we can finally get into my room.", "Ida"));
@@ -233,7 +231,7 @@ public class MASTERSCRIPT : MonoBehaviour
     public void postPuzzleDialogue_3()
     {
         var dialogTexts = new List<DialogData>();
-        dialogTexts.Add(new DialogData("Well I’ll be, you did it.", "Ida")); // <Fire roars to life>
+        dialogTexts.Add(new DialogData("/sound:Fireplace/Well I’ll be, you did it.", "Ida")); // <Fire roars to life>
         dialogTexts.Add(new DialogData("And I got quite a bit of new evidence- thanks to your cooperation, of course.", "Medium"));
         dialogTexts.Add(new DialogData(" Now that I think about it... I think I remember a little bit more about the night of the party.", "Ida"));
         dialogTexts.Add(new DialogData("Hm?", "Medium"));
@@ -341,7 +339,7 @@ public class MASTERSCRIPT : MonoBehaviour
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("The books are coated in a thick layer of dust...", "Medium"));
-            dialogTexts.Add(new DialogData("Hm? There's a piece of paper sticking out from one of them.", "Medium"));
+            dialogTexts.Add(new DialogData("/sound:Paper/Hm? There's a piece of paper sticking out from one of them.", "Medium"));
             dialogTexts.Add(new DialogData("...?", "Medium"));
             DialogManager.Show(dialogTexts);
 
@@ -398,7 +396,7 @@ public class MASTERSCRIPT : MonoBehaviour
         else if (keyWord == "Attic Door")
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("It's locked...", "Medium")); // <Door knob jiggle>
+            dialogTexts.Add(new DialogData("/sound:Doorknob/It's locked...", "Medium")); // <Door knob jiggle>
             DialogManager.Show(dialogTexts);
         }
 
@@ -406,7 +404,7 @@ public class MASTERSCRIPT : MonoBehaviour
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("(What’s this sticking out from under the dresser?)", "Medium"));
-            dialogTexts.Add(new DialogData("/color:#540647//size:40/[Found: Note]", "SYSTEM"));
+            dialogTexts.Add(new DialogData("/sound:Paper//color:#540647//size:40/[Found: Note]", "SYSTEM"));
             dialogTexts.Add(new DialogData(" Let’s see what this says… oh. This is… interesting.", "Medium"));
             dialogTexts.Add(new DialogData("Huh? Let me see!.", "Ida"));
             dialogTexts.Add(new DialogData("...", "Ida"));
@@ -419,7 +417,7 @@ public class MASTERSCRIPT : MonoBehaviour
             // CUT THE MUSIC ??
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("(There’s no going back. Time to literally crack the case wide open)", "Medium"));
-            dialogTexts.Add(new DialogData("...", "Medium"));
+            dialogTexts.Add(new DialogData("/sound:ChestOpen/...", "Medium"));
             dialogTexts.Add(new DialogData("...", "Ida"));
             dialogTexts.Add(new DialogData("Oh god.", "Medium"));
             dialogTexts.Add(new DialogData("That…that’s me. I almost couldn’t tell at first, it’s just… I never thought I would see myself like this.", "Ida"));
@@ -436,8 +434,8 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("I don’t know what’s next, but I’m not afraid to find out.", "Ida"));
             dialogTexts.Add(new DialogData("Thank you, Inspector. You really were the bee's knees, ya know?", "Ida"));
             DialogManager.Show(dialogTexts);
-            isDone = true;
-           
+            endGameManager.SetActive(true);
+            GameManager.Instance.UpdateGameState(GameState.EndGame);
             
 
         }
@@ -458,7 +456,7 @@ public class MASTERSCRIPT : MonoBehaviour
             dialogTexts.Add(new DialogData("From there, she brought me over to my room, talkin’ about how I should sit things out for a while.", "Ida"));
             dialogTexts.Add(new DialogData("Of course, I was going on about how I was fine and that they needed me downstairs but she insisted.", "Ida"));
             dialogTexts.Add(new DialogData("Sounds good, let’s head in and-", "Medium"));
-            dialogTexts.Add(new DialogData("(Doorknob rattles)", "Medium")); // TRIGGER SOUND
+            dialogTexts.Add(new DialogData("/sound:Doorknob/(Doorknob rattles)", "Medium")); // TRIGGER SOUND
             dialogTexts.Add(new DialogData("What? Really?", "Ida"));
             dialogTexts.Add(new DialogData("...There’s no way. I couldn't have been THAT drunk, could I?", "Ida"));
             dialogTexts.Add(new DialogData("Why the hell would it be locked?", "Ida"));
@@ -509,23 +507,7 @@ public class MASTERSCRIPT : MonoBehaviour
 
 
 
-    public void triggerEnding()
-    {
-        if (isDone && DialogManager.gameObject && DialogManager.Overlay.activeSelf == false) 
-        {
-            SceneManager.LoadScene(4);
-        }
 
-        
-        
-    }
-    private void Update()
-    {
-        if (isDone && DialogManager.gameObject)
-        {
-            Invoke("triggerEnding", 3);
-        }
-    }
 
    
 }

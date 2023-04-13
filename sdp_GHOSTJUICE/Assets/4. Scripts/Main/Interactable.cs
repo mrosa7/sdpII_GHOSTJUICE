@@ -17,6 +17,8 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     public GameObject itemDisplayBox; // connect to itemDisplay in Dialog Asset
     Image targetImage;
     RectTransform sourceRectT;
+    public AudioClip onClickSfx;
+    public AudioSource Audio;
     //public DialogManager DialogManager;
 
     //public inGameDialogManager IG_DialogManager;
@@ -26,6 +28,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         sourceRectT = GetComponent<RectTransform>();
+        //Audio = GetComponent<AudioSource>();
 
     }
 
@@ -48,6 +51,8 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
             displayItem();
             //Debug.Log("CLICKING:" + name);
             MASTERSCRIPT.Instance.objInteraction(keyWord);
+
+            Audio.PlayOneShot(onClickSfx, 0.7f);
             objectiveTriggerCheck(keyWord);
         }
            
