@@ -13,12 +13,13 @@ public class videoScript : MonoBehaviour
     {
         //set up video to track
         video = GetComponent<VideoPlayer>();
-        video.Play();
-        StartCoroutine("WaitForMovieEnd");
+        //video.Play();
+        // StartCoroutine("WaitForMovieEnd");
+        Invoke("videoEnded", 12);
     }
 
 
-    public IEnumerator waitForVideoEnd()
+    /*public IEnumerator waitForVideoEnd()
     {
         while (video.isPlaying)
         {
@@ -26,7 +27,7 @@ public class videoScript : MonoBehaviour
 
         }
         videoEnded();
-    }
+    }*/
 
     void videoEnded()
     {

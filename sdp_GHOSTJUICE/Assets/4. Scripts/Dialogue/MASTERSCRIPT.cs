@@ -28,7 +28,7 @@ public class MASTERSCRIPT : MonoBehaviour
         //Plays this dialogue when the Player first enters the house.
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("Well, time to get down to business.", "Medium"));
-       /* dialogTexts.Add(new DialogData("Hello? I'm here to speak to Miss Ida Wagner.", "Medium"));
+        dialogTexts.Add(new DialogData("Hello? I'm here to speak to Miss Ida Wagner.", "Medium"));
         dialogTexts.Add(new DialogData("...", "Medium"));
         dialogTexts.Add(new DialogData("...Ida, I have reason to believe that you're here with me right now.", "Medium"));
         dialogTexts.Add(new DialogData(" If you are, please give me a sign.", "Medium"));
@@ -38,7 +38,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData("Alright, Miss Wagner, thank you for your cooperation. Now, if I can, I would like to ask a couple of questions. ", "Medium"));
         dialogTexts.Add(new DialogData("I'm working with the police, my name is Inspector--", "Medium"));
         dialogTexts.Add(new DialogData("/sound:GhostNoise/!!!??", "Medium")); // < angry ghost noise / agressive>
-                                                            //trigger sound effect
+                                                                              //trigger sound effect
         dialogTexts.Add(new DialogData("Hey now, no need to get all freaked out, I just wanted to- ", "Medium"));
         //another sound effect
         dialogTexts.Add(new DialogData("(CRASH)", "Ida")); // <Ida throws something>
@@ -86,7 +86,7 @@ public class MASTERSCRIPT : MonoBehaviour
         dialogTexts.Add(new DialogData(" Be a dear and light the fireplace, will ya?", "Ida"));
         dialogTexts.Add(new DialogData("You'll need matches and some tinder to get the fire going- they're all hiding around here somewhere", "Ida"));
         dialogTexts.Add(new DialogData("Now get on with it, and no funny business, alright?", "Ida"));
-        dialogTexts.Add(new DialogData("/emote:Anger/Remember, I'm watching you.", "Ida"));*/
+        dialogTexts.Add(new DialogData("/emote:Anger/Remember, I'm watching you.", "Ida"));
         DialogManager.Show(dialogTexts);
         //GhostState = "inital";
     }

@@ -28,7 +28,7 @@ public class endGameManager : MonoBehaviour
     {
         if (DialogManager.Overlay.activeSelf == false)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(3);
         }
 
 
