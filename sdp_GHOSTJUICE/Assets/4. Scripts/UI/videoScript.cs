@@ -15,7 +15,7 @@ public class videoScript : MonoBehaviour
         video = GetComponent<VideoPlayer>();
         //video.Play();
         // StartCoroutine("WaitForMovieEnd");
-        Invoke("videoEnded", 12);
+        Invoke("videoEnded", 11);
     }
 
 

@@ -39,4 +39,12 @@ public class ChangeScene : MonoBehaviour
         Application.Quit();
     }
 
+    public void destroyAudio()
+    {
+        if (GameObject.FindGameObjectWithTag("endAudio"))
+        {
+            GameObject audioSourceObj = GameObject.FindGameObjectWithTag("endAudio");
+            Destroy(audioSourceObj);
+        }
+    }
 }
