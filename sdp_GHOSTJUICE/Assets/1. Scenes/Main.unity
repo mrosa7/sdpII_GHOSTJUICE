@@ -3142,8 +3142,9 @@ Animation:
   m_Animation: {fileID: 7400000, guid: f18b4677b52cab84898e84608bb08127, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: f18b4677b52cab84898e84608bb08127, type: 2}
+  - {fileID: 7400000, guid: ec9515bf5668c52498d460bc88c4d29c, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &384670802
@@ -10829,6 +10830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogManager: {fileID: 176232913}
+  blackScreenObj: {fileID: 382889548}
 --- !u!4 &2052032915
 Transform:
   m_ObjectHideFlags: 0
