@@ -79,7 +79,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
         SpriteRenderer targetImage = itemDisplayBox.GetComponent<SpriteRenderer>();
         RectTransform targetRect = itemDisplayBox.GetComponent<RectTransform>();
         targetImage.sprite = SwapSprite;
-        //Debug.Log("I'm RUNNING");
+        Debug.Log("I AM SWAPPING");
         targetRect.localScale = new Vector3(1f, 1f, 1);
     }
     void objectiveTriggerCheck(string key)
