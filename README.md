@@ -1,3 +1,7 @@
 # sdpII_GHOSTJUICE PROJECT
-Use unity version 2021.3.9
-I'd also recommend using GitHub Desktop
+Using unity version 2021.3.9
+
+Hello! This is the code for Unfinished Business.
+Thank you for checking this project out.
+
+Play the game here: https://melinarosales.itch.io/unfinbiz
